@@ -47,7 +47,7 @@ public class LoginPage extends AppCompatActivity {
         loginbutton = findViewById(R.id.loginbutton);
         createAccount = findViewById(R.id.createaccount);
         forgotPassword = findViewById(R.id.forgotpassword);
-
+        // login function button
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +61,16 @@ public class LoginPage extends AppCompatActivity {
                 startActivity(new Intent(LoginPage.this, CreateAccountPage.class));
             }
         });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetPassword();
+            }
+        });
+
     }
+
 
     private void login() {
         String user = email.getText().toString().trim();
@@ -83,6 +92,26 @@ public class LoginPage extends AppCompatActivity {
                     }
                     else {
                         Toast.makeText(LoginPage.this, "Login Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+    private void resetPassword() {
+        String userEmail = email.getText().toString().trim();
+        if (userEmail.isEmpty()) {
+            email.setError("Enter your email to reset password");
+        }
+        else {
+            mAuth.sendPasswordResetEmail(userEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(LoginPage.this, "Password reset email sent", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(LoginPage.this, "Failed to send:" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });

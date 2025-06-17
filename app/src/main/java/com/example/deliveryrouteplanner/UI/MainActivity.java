@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // TODO: move log out button to a menu item instead of on screen to prevent accidental logout (move to inflated menu for nav option chosen)
         // make logout button functional
         mAuth = FirebaseAuth.getInstance();
         logoutbutton = findViewById(R.id.logoutbutton);
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 logout();
             }
         });
+        //
     }
 
     @Override
