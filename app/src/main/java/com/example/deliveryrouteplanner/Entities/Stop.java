@@ -8,20 +8,19 @@ import java.util.Date;
 
 @Entity (tableName = "stops")
 public class Stop {
-    @PrimaryKey
-    @NonNull
-    private String stopID;
+    @PrimaryKey (autoGenerate = true)
+    private int stopID;
     private String address;
     private String status;
     private Date timestamp;
     private String photoPath;
     private String barcode;
     private String signaturePath;
-    private String routeID;
+    private int routeID;
 
     //constructor
 
-    public Stop(String stopID, String address, String status, Date timestamp, String photoPath, String barcode, String signaturePath, String routeID) {
+    public Stop(int stopID, String address, String status, Date timestamp, String photoPath, String barcode, String signaturePath, int routeID) {
         this.stopID = stopID;
         this.address = address;
         this.status = status;
@@ -36,11 +35,11 @@ public class Stop {
     //getters and setters
 
 
-    public String getStopID() {
+    public int getStopID() {
         return stopID;
     }
 
-    public void setStopID(String stopID) {
+    public void setStopID(int stopID) {
         this.stopID = stopID;
     }
 
@@ -92,11 +91,11 @@ public class Stop {
         this.signaturePath = signaturePath;
     }
 
-    public String getRouteID() {
+    public int getRouteID() {
         return routeID;
     }
 
-    public void setRouteID(String routeID) {
+    public void setRouteID(int routeID) {
         this.routeID = routeID;
     }
 }

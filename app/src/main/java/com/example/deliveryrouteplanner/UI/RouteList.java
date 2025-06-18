@@ -1,5 +1,6 @@
 package com.example.deliveryrouteplanner.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +16,7 @@ import com.example.deliveryrouteplanner.DAO.RouteDao;
 import com.example.deliveryrouteplanner.Database.Repository;
 import com.example.deliveryrouteplanner.Entities.Route;
 import com.example.deliveryrouteplanner.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -36,6 +38,13 @@ public class RouteList extends AppCompatActivity {
         //set toolbar as a support action bar to show menu
         Toolbar toolbar = findViewById(R.id.routelisttoolbar);
         setSupportActionBar(toolbar);
+
+       //fab functionality
+        FloatingActionButton fab = findViewById(R.id.floatingActionButtonRouteList);
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(RouteList.this, RouteDetails.class);
+            startActivity(intent);
+        });
 
         //display routes in recycler view
         repository = new Repository(getApplication());

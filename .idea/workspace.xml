@@ -30,12 +30,32 @@
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_check_mark.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_delete_trash_can.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_delivery_truck_speed_24.xml">
         <config>
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_edit__current_route.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_map_24.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_reports.xml">
         <config>
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
@@ -80,7 +100,22 @@
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_route_details.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_route_list.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_stop_details.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_stop_list.xml">
         <config>
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
@@ -131,12 +166,20 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="navigation progress, added adapter for route list">
+    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="navigation elements for dashboard added">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_home.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/outline_check_mark.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/outline_delete_trash_can.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/outline_fab_add_box.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_dashboard.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Route.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Stop.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Stop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_route_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_route_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_route_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_route_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -379,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750213898093</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="navigation elements for dashboard added">
+      <option name="closed" value="true" />
+      <created>1750215384311</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1750215384311</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -401,7 +452,8 @@
     <MESSAGE value="created mainactivity (dashboard) menu and added toolbar as actionbar" />
     <MESSAGE value="dashboard creation progress" />
     <MESSAGE value="navigation progress, added adapter for route list" />
-    <option name="LAST_COMMIT_MESSAGE" value="navigation progress, added adapter for route list" />
+    <MESSAGE value="navigation elements for dashboard added" />
+    <option name="LAST_COMMIT_MESSAGE" value="navigation elements for dashboard added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -419,12 +471,12 @@
       <map>
         <entry key="com.example.deliveryrouteplanner">
           <value>
-            <CheckInfo lastCheckTimestamp="1750140529506" />
+            <CheckInfo lastCheckTimestamp="1750237350546" />
           </value>
         </entry>
         <entry key="com.example.deliveryrouteplanner.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1750140529506" />
+            <CheckInfo lastCheckTimestamp="1750237350530" />
           </value>
         </entry>
       </map>

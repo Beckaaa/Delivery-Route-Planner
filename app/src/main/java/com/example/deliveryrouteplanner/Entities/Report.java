@@ -8,16 +8,15 @@ import java.util.Date;
 
 @Entity (tableName = "reports")
 public class Report {
-    @PrimaryKey
-    @NonNull
-    private String reportID;
+    @PrimaryKey (autoGenerate = true)
+    private int reportID;
     private Date dateGenerated;
-    private String routeID;
+    private int routeID;
     private String pdfPath;
 
     //constructor
 
-    public Report(String reportID, Date dateGenerated, String routeID, String pdfPath) {
+    public Report(int reportID, Date dateGenerated, int routeID, String pdfPath) {
         this.reportID = reportID;
         this.dateGenerated = dateGenerated;
         this.routeID = routeID;
@@ -27,11 +26,11 @@ public class Report {
 
     //getters and setters
 
-    public String getReportID() {
+    public int getReportID() {
         return reportID;
     }
 
-    public void setReportID(String reportID) {
+    public void setReportID(int reportID) {
         this.reportID = reportID;
     }
 
@@ -43,11 +42,11 @@ public class Report {
         this.dateGenerated = dateGenerated;
     }
 
-    public String getRouteID() {
+    public int getRouteID() {
         return routeID;
     }
 
-    public void setRouteID(String routeID) {
+    public void setRouteID(int routeID) {
         this.routeID = routeID;
     }
 

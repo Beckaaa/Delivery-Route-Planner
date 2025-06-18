@@ -6,5 +6,239 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UI.RouteDetails">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/routedetailstoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageButton
+            android:id="@+id/homebutton"
+            android:backgroundTint="@color/yellow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/outline_delivery_truck_speed_24" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/allroutedetailslinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/bluegray"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/routedetailstoolbar"
+        tools:layout_editor_absoluteX="4dp">
+
+        <LinearLayout
+            android:id="@+id/routedetailsdatelinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/routedetailstoolbar">
+
+            <TextView
+                android:id="@+id/textViewRouteDetailsDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Date:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/routedetailsDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="select date"
+                android:inputType="date"
+                android:padding="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/routedetailsstartlocationlinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/routedetailsdatelinear">
+
+            <TextView
+                android:id="@+id/textViewRouteDetailsStartLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Start Location:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/editTextStartLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="route start address"
+                android:inputType="textPostalAddress" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/routedetailsendlocationlinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/routedetailsstartlocationlinear">
+
+            <TextView
+                android:id="@+id/textViewRouteDetailsEndLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="End Location:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/editTextEndLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="route end address"
+                android:inputType="textPostalAddress" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/routedetailstopcountlinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/routedetailsendlocationlinear">
+
+            <TextView
+                android:id="@+id/textViewRouteDetailsStopCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Stop Count:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/editTextStopCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="total stops for the route"
+                android:inputType="number" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/routedetailsavedelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/routedetailsendlocationlinear">
+
+            <LinearLayout
+                android:id="@+id/routedetailsavelinear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/routedetailsendlocationlinear">
+
+                <ImageButton
+                    android:id="@+id/routedetailsavebutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/navy"
+                    app:srcCompat="@drawable/outline_check_mark" />
+
+                <TextView
+                    android:id="@+id/textViewRouteDetailsSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Save"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/routedetaildeletelinear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/routedetailsendlocationlinear">
+
+                <ImageButton
+                    android:id="@+id/routedetailsdeletebutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/navy"
+                    app:srcCompat="@drawable/outline_delete_trash_can" />
+
+                <TextView
+                    android:id="@+id/textViewRouteDetailsDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Delete"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/TextViewStopsOnRoute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stops On This Route:"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:background="@color/navy"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/allroutedetailslinear"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/routedetailsrecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/lightgray"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TextViewStopsOnRoute"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButtonRouteDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/outline_add_route" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,31 +8,31 @@ import java.util.Date;
 
 @Entity (tableName = "routes")
 public class Route {
-    @PrimaryKey
-    @NonNull
-    private String routeID;
+    @PrimaryKey (autoGenerate = true)
+    private int routeID;
     private Date date;
     private String startLocation;
     private String endLocation;
     private float totalDistance;
-
+    private int stopCount;
     private boolean isActive;
 
     //constructor
-    public Route(String routeID, Date date, String startLocation, String endLocation, float totalDistance) {
+    public Route(int routeID, Date date, String startLocation, String endLocation, float totalDistance, int stopCount) {
         this.routeID = routeID;
         this.date = date;
         this.startLocation = startLocation;
         this.endLocation = endLocation;
         this.totalDistance = totalDistance;
+        this.stopCount = stopCount;
     }
     //getters and setters
 
-    public String getRouteID() {
+    public int getRouteID() {
         return routeID;
     }
 
-    public void setRouteID(String routeID) {
+    public void setRouteID(int routeID) {
         this.routeID = routeID;
     }
 
@@ -74,5 +74,13 @@ public class Route {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    public int getStopCount() {
+        return stopCount;
+    }
+
+    public void setStopCount(int stopCount) {
+        this.stopCount = stopCount;
     }
 }
