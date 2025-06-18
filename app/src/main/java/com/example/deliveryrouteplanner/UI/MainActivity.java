@@ -2,11 +2,16 @@ package com.example.deliveryrouteplanner.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -31,18 +36,30 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // TODO: move log out button to a menu item instead of on screen to prevent accidental logout (move to inflated menu for nav option chosen)
-        // make logout button functional
-        mAuth = FirebaseAuth.getInstance();
-        logoutbutton = findViewById(R.id.logoutbutton);
 
-        logoutbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                logout();
-            }
-        });
-        //
+        //set toolbar as a support action bar to show menu
+        Toolbar toolbar = findViewById(R.id.dashtoolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    //menu inflater
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.logoutaction) {
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(MainActivity.this, "Logged out", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this, LoginPage.class));
+            finish();
+            return true;
+        }
+        //TODO: add functionality for menu items for menu_dashboard (only setup logout so far)
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
