@@ -14,36 +14,45 @@
         tools:targetApi="31">
         <activity
             android:name=".UI.ReportDetails"
+            android:label="Report Details"
             android:exported="false"
             android:parentActivityName=".UI.ReportList"/>
         <activity
             android:name=".UI.ReportList"
+            android:label="Report List"
             android:exported="false"
             android:parentActivityName=".UI.MainActivity"/>
         <activity
             android:name=".UI.RouteList"
+            android:label="Route List"
             android:exported="false"
             android:parentActivityName=".UI.MainActivity"/>
         <activity
             android:name=".UI.StopList"
+            android:label="Stop List"
             android:exported="false"
             android:parentActivityName=".UI.RouteDetails"/>
         <activity
             android:name=".UI.RouteDetails"
+            android:label="Route Details"
             android:exported="false"
             android:parentActivityName=".UI.RouteList"/>
         <activity
             android:name=".UI.StopDetails"
+            android:label="Stop Details"
             android:exported="false"
             android:parentActivityName=".UI.StopList"/>
         <activity
             android:name=".UI.CreateAccountPage"
+            android:label="Create An Account"
             android:exported="false" />
         <activity
             android:name=".UI.LoginPage"
+            android:label="Login Page"
             android:exported="false" />
         <activity
             android:name=".UI.MainActivity"
+            android:label="Dashboard"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

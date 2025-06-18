@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -23,6 +23,9 @@ import com.example.deliveryrouteplanner.R;
 public class MainActivity extends AppCompatActivity {
 //adding firebase authentication logout option
     private FirebaseAuth mAuth;
+    private ImageView createnewroute;
+    private ImageView editcurrentroute;
+    private ImageView viewreports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,32 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.dashtoolbar);
         setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
+
+        // making buttons functional navigation
+        createnewroute = findViewById(R.id.imageViewAddRoute);
+        editcurrentroute = findViewById(R.id.imageViewEditCurrentRoute);
+        viewreports = findViewById(R.id.imageViewReports);
+
+        createnewroute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RouteList.class));
+            }
+        });
+
+        editcurrentroute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RouteDetails.class));
+            }
+        });
+
+        viewreports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ReportList.class));
+            }
+        });
     }
 
     //menu inflater
@@ -58,6 +87,22 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         //TODO: add functionality for menu items for menu_dashboard (only setup logout so far)
+        if (item.getItemId() == R.id.dashmenuroutes) {
+            startActivity(new Intent(MainActivity.this, RouteList.class));
+        }
+
+        if (item.getItemId() == R.id.dashmenustops) {
+            startActivity(new Intent(MainActivity.this, StopList.class));
+        }
+
+        if (item.getItemId() == R.id.dashmenureports) {
+            startActivity(new Intent(MainActivity.this, ReportList.class));
+        }
+
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }

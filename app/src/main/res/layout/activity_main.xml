@@ -35,15 +35,17 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/newroutecard"
+
         android:layout_width="100dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/currentroute"
+        app:layout_constraintEnd_toStartOf="@+id/editcurrentroutecard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dashboardcard">
 
         <ImageView
             android:id="@+id/imageViewAddRoute"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             app:srcCompat="@drawable/outline_add_route" />
@@ -61,12 +63,12 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/reports"
+        android:id="@+id/reportscard"
         android:layout_width="100dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/currentroute"
+        app:layout_constraintStart_toEndOf="@id/editcurrentroutecard"
         app:layout_constraintTop_toBottomOf="@+id/dashboardcard">
 
         <TextView
@@ -81,6 +83,7 @@
 
         <ImageView
             android:id="@+id/imageViewReports"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             app:srcCompat="@drawable/outline_reports" />
@@ -88,7 +91,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/currentroute"
+        android:id="@+id/editcurrentroutecard"
         android:layout_width="100dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -98,6 +101,7 @@
 
         <TextView
             android:id="@+id/textViewcurrentroute"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Edit Current Route"
