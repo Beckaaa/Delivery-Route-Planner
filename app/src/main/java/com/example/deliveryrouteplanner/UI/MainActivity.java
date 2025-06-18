@@ -23,7 +23,6 @@ import com.example.deliveryrouteplanner.R;
 public class MainActivity extends AppCompatActivity {
 //adding firebase authentication logout option
     private FirebaseAuth mAuth;
-    private Button logoutbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         //set toolbar as a support action bar to show menu
         Toolbar toolbar = findViewById(R.id.dashtoolbar);
         setSupportActionBar(toolbar);
+        mAuth = FirebaseAuth.getInstance();
     }
 
     //menu inflater
@@ -69,11 +69,6 @@ public class MainActivity extends AppCompatActivity {
         if (currentUser== null) {
             startActivity(new Intent(MainActivity.this, LoginPage.class));
         }
-    }
-    //log out method
-    public void logout(){
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(MainActivity.this, LoginPage.class));
     }
 
 }
