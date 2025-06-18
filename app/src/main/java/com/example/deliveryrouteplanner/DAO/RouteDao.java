@@ -26,4 +26,7 @@ public interface RouteDao {
 
     @Query("SELECT * FROM ROUTES ORDER BY routeID ASC")
     LiveData<List<Route>> getAllRoutes();
+
+    @Query("SELECT * FROM ROUTES WHERE isActive = 1 LIMIT 1")
+    LiveData<Route> getActiveRoute();
 }

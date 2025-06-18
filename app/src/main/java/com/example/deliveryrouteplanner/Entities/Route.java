@@ -16,6 +16,8 @@ public class Route {
     private String endLocation;
     private float totalDistance;
 
+    private boolean isActive;
+
     //constructor
     public Route(String routeID, Date date, String startLocation, String endLocation, float totalDistance) {
         this.routeID = routeID;
@@ -64,5 +66,13 @@ public class Route {
 
     public void setTotalDistance(float totalDistance) {
         this.totalDistance = totalDistance;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

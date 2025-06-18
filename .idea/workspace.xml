@@ -50,6 +50,16 @@
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_create_new_route.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_create_route.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login_page.xml">
         <config>
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
@@ -60,7 +70,37 @@
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_report_details.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_report_list.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_route_list.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/content_test.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/report_list_item.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/route_list_item.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/stop_list_item.xml">
         <config>
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
@@ -91,12 +131,26 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="created mainactivity (dashboard) menu and added toolbar as actionbar">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/outline_add_route.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/outline_edit__current_route.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/outline_reports.xml" afterDir="false" />
+    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="dashboard creation progress">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_report_details.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_report_list.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_route_details.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_route_list.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_stop_details.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_stop_list.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/report_list_item.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/route_list_item.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/stop_list_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/RouteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/RouteDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,8 +188,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="resourceFile" />
+        <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -187,6 +242,11 @@
     "settings.editor.selected.configurable": "memory.settings"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="android.template.-2481169">
+      <recent name="com.example.deliveryrouteplanner.UI" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="Delivery_Route_Planner.app" />
@@ -318,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750206656109</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="dashboard creation progress">
+      <option name="closed" value="true" />
+      <created>1750209245607</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1750209245607</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -338,7 +406,8 @@
     <MESSAGE value="database builder, dao, entities created, repository incomplete" />
     <MESSAGE value="repository complete, UI improvements on login and create account screens" />
     <MESSAGE value="created mainactivity (dashboard) menu and added toolbar as actionbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="created mainactivity (dashboard) menu and added toolbar as actionbar" />
+    <MESSAGE value="dashboard creation progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="dashboard creation progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

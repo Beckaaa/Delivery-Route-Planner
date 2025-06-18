@@ -13,6 +13,30 @@
         android:theme="@style/Theme.DeliveryRoutePlanner"
         tools:targetApi="31">
         <activity
+            android:name=".UI.ReportDetails"
+            android:exported="false"
+            android:parentActivityName=".UI.ReportList"/>
+        <activity
+            android:name=".UI.ReportList"
+            android:exported="false"
+            android:parentActivityName=".UI.MainActivity"/>
+        <activity
+            android:name=".UI.RouteList"
+            android:exported="false"
+            android:parentActivityName=".UI.MainActivity"/>
+        <activity
+            android:name=".UI.StopList"
+            android:exported="false"
+            android:parentActivityName=".UI.RouteDetails"/>
+        <activity
+            android:name=".UI.RouteDetails"
+            android:exported="false"
+            android:parentActivityName=".UI.RouteList"/>
+        <activity
+            android:name=".UI.StopDetails"
+            android:exported="false"
+            android:parentActivityName=".UI.StopList"/>
+        <activity
             android:name=".UI.CreateAccountPage"
             android:exported="false" />
         <activity
