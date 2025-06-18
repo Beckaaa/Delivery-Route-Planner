@@ -13,12 +13,12 @@ public class Route {
     private Date date;
     private String startLocation;
     private String endLocation;
-    private float totalDistance;
+    private int totalDistance;
     private int stopCount;
     private boolean isActive;
 
     //constructor
-    public Route(int routeID, Date date, String startLocation, String endLocation, float totalDistance, int stopCount) {
+    public Route(int routeID, Date date, String startLocation, String endLocation, int totalDistance, int stopCount) {
         this.routeID = routeID;
         this.date = date;
         this.startLocation = startLocation;
@@ -60,11 +60,11 @@ public class Route {
         this.endLocation = endLocation;
     }
 
-    public float getTotalDistance() {
+    public int getTotalDistance() {
         return totalDistance;
     }
 
-    public void setTotalDistance(float totalDistance) {
+    public void setTotalDistance(int totalDistance) {
         this.totalDistance = totalDistance;
     }
 

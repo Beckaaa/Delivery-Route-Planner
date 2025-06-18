@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.deliveryrouteplanner.Entities.Route;
@@ -34,11 +33,12 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.RouteViewHol
                     int position = getAdapterPosition();
                     final Route current = mRoutes.get(position);
                     Intent intent = new Intent(context, RouteDetails.class);
-                    intent.putExtra("id", current.getRouteID());
+                    intent.putExtra("routeID", current.getRouteID());
                     intent.putExtra("startLocation", current.getStartLocation());
                     intent.putExtra("endLocation", current.getEndLocation());
-                    intent.putExtra("date", current.getDate());
+                    intent.putExtra("date", current.getDate().toString());
                     intent.putExtra("totalDistance", current.getTotalDistance());
+                    intent.putExtra("stopCount", current.getStopCount());
                     context.startActivity(intent);
                 }
             });

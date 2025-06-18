@@ -30,7 +30,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_marginTop="4dp"
         android:background="@color/bluegray"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/routedetailstoolbar"
@@ -40,7 +39,7 @@
             android:id="@+id/routedetailsdatelinear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/routedetailstoolbar">
 
@@ -53,11 +52,13 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/routedetailsDate"
+                android:id="@+id/editTextDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="select date"
+                android:clickable="true"
+                android:focusable="false"
                 android:inputType="date"
                 android:padding="10dp" />
         </LinearLayout>
@@ -66,7 +67,7 @@
             android:id="@+id/routedetailsstartlocationlinear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/routedetailsdatelinear">
 
@@ -92,7 +93,7 @@
             android:id="@+id/routedetailsendlocationlinear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/routedetailsstartlocationlinear">
 
@@ -118,7 +119,7 @@
             android:id="@+id/routedetailstopcountlinear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/routedetailsendlocationlinear">
 
@@ -140,7 +141,31 @@
                 android:inputType="number" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/routedetailtotaldistancelinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/routedetailsendlocationlinear">
 
+            <TextView
+                android:id="@+id/textViewRouteDetailsTotalDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Total Distance:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/editTextTotalDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="total miles"
+                android:inputType="number" />
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/routedetailsavedelete"
             android:layout_width="wrap_content"
@@ -154,7 +179,6 @@
                 android:id="@+id/routedetailsavelinear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:layout_gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@id/routedetailsendlocationlinear">
@@ -210,7 +234,7 @@
         android:layout_height="wrap_content"
         android:text="Stops On This Route:"
         android:textSize="20dp"
-        android:padding="10dp"
+        android:padding="5dp"
         android:background="@color/navy"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/allroutedetailslinear"/>
