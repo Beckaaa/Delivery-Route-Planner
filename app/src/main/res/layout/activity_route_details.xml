@@ -186,7 +186,7 @@
                 <ImageButton
                     android:id="@+id/routedetailsavebutton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:backgroundTint="@color/navy"
                     app:srcCompat="@drawable/outline_check_mark" />
 
@@ -211,7 +211,7 @@
                 <ImageButton
                     android:id="@+id/routedetailsdeletebutton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:backgroundTint="@color/navy"
                     app:srcCompat="@drawable/outline_delete_trash_can" />
 

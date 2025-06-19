@@ -72,12 +72,7 @@ public class RouteDetails extends AppCompatActivity {
 
         //fab to add stop details
         FloatingActionButton fab=findViewById(R.id.floatingActionButtonRouteDetails);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RouteDetails.this, StopDetails.class));
-            }
-        });
+
 
         //home button to navigate to main activity (dashboard)
         ImageButton home = findViewById(R.id.homebutton);
@@ -94,6 +89,21 @@ public class RouteDetails extends AppCompatActivity {
         editStopCount = findViewById(R.id.editTextStopCount);
         editTotalDistance = findViewById(R.id.editTextTotalDistance);
         routeID = getIntent().getIntExtra("routeID", -1);
+        //fab invisible until the route is saved
+        if (routeID == -1) {
+            fab.setVisibility(View.GONE);
+        }
+        else {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(RouteDetails.this, StopDetails.class);
+                    intent.putExtra("routeID",routeID);
+                    startActivity(intent);
+                }
+            });
+        }
+
         date = getIntent().getStringExtra("date");
         startLocation = getIntent().getStringExtra("startLocation");
         endLocation = getIntent().getStringExtra("endLocation");
@@ -110,6 +120,9 @@ public class RouteDetails extends AppCompatActivity {
         editStopCount.setText(String.valueOf(stopCount));
         editTotalDistance.setText(String.valueOf(totalDistance));
         editDate.setOnClickListener(v -> datePicker.showDate(editDate));
+
+
+
 
         //TODO: create the StopAdapter and add the recyclerview for associated stops list
         //save button functionality
@@ -167,6 +180,8 @@ public class RouteDetails extends AppCompatActivity {
                     routeViewModel.insert(route);
                     Toast.makeText(RouteDetails.this, "Saved Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(RouteDetails.this, RouteList.class));
+                    // make fab visible after save when opening route again
+                    fab.setVisibility(View.VISIBLE);
                 }
             }
         });

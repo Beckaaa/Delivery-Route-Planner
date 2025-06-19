@@ -1,6 +1,9 @@
 package com.example.deliveryrouteplanner.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +25,16 @@ public class StopDetails extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        //home button to navigate to main activity (dashboard)
+        ImageButton home = findViewById(R.id.homebutton);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StopDetails.this, MainActivity.class));
+            }
+        });
+
+
     }
 }

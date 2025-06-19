@@ -14,8 +14,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.deliveryrouteplanner.DAO.RouteDao;
-import com.example.deliveryrouteplanner.Database.Repository;
 import com.example.deliveryrouteplanner.Entities.Route;
 import com.example.deliveryrouteplanner.R;
 import com.example.deliveryrouteplanner.ViewModels.RouteViewModel;
@@ -25,7 +23,6 @@ import java.util.List;
 
 public class RouteList extends AppCompatActivity {
 
-    private Repository repository;
     private RouteViewModel routeViewModel;
 
     @Override
