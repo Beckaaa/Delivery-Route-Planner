@@ -10,6 +10,7 @@ import androidx.room.Update;
 
 import com.example.deliveryrouteplanner.Entities.Route;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -29,4 +30,8 @@ public interface RouteDao {
 
     @Query("SELECT * FROM ROUTES WHERE isActive = 1 LIMIT 1")
     LiveData<Route> getActiveRoute();
+
+
+    List<Route> cachedRoutes = new ArrayList<>();
+
 }

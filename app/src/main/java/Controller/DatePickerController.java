@@ -29,7 +29,7 @@ public class DatePickerController {
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, day);
 
-                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy", Locale.US);
+                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
                 targetedEditText.setText(sdf.format(calendar.getTime()));
             }
         };

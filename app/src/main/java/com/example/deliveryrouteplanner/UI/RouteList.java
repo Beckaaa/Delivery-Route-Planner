@@ -9,6 +9,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,6 +18,7 @@ import com.example.deliveryrouteplanner.DAO.RouteDao;
 import com.example.deliveryrouteplanner.Database.Repository;
 import com.example.deliveryrouteplanner.Entities.Route;
 import com.example.deliveryrouteplanner.R;
+import com.example.deliveryrouteplanner.ViewModels.RouteViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -23,6 +26,7 @@ import java.util.List;
 public class RouteList extends AppCompatActivity {
 
     private Repository repository;
+    private RouteViewModel routeViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,14 +51,16 @@ public class RouteList extends AppCompatActivity {
         });
 
         //display routes in recycler view
-        repository = new Repository(getApplication());
-        List<Route> allRoutes = repository.getmAllRoutes().getValue();
-        final RouteAdapter adapter = new RouteAdapter(this);
         RecyclerView recyclerView = findViewById(R.id.routelistrecyclerview);
+        final RouteAdapter adapter = new RouteAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter.setRoutes(allRoutes);
-
-
+        routeViewModel = new ViewModelProvider(this).get(RouteViewModel.class);
+        routeViewModel.getAllRoutes().observe(this, new Observer<List<Route>>() {
+            @Override
+            public void onChanged(List<Route> routes) {
+                adapter.setRoutes(routes);
+            }
+        });
     }
 }

@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         createnewroute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, RouteList.class));
+                startActivity(new Intent(MainActivity.this, RouteDetails.class));
             }
         });
 
