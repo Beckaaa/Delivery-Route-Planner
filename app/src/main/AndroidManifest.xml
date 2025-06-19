@@ -41,7 +41,7 @@
             android:name=".UI.StopDetails"
             android:label="Stop Details"
             android:exported="false"
-            android:parentActivityName=".UI.StopList"/>
+            android:parentActivityName=".UI.RouteDetails"/>
         <activity
             android:name=".UI.CreateAccountPage"
             android:label="Create An Account"

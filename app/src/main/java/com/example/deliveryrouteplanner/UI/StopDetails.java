@@ -118,12 +118,15 @@ public class StopDetails extends AppCompatActivity {
         });
 
 
+//TODO: make barcode button functional to scan a barcode option
+
+//TODO: make camera button functional for photo confirm
 
 //TODO: set up save and delete buttons functionality
 
+//TODO: make timestamp fill when selecting status successful or failed when saving
 
-
-// TODO: onsave method needs to wrap this to save the signature:
+// TODO: both insert and update for save button needs this included to save the signature:
 //        if(!signaturePad.isEmpty()) {
 //            Bitmap signatureBitmap = signaturePad.getSignatureBitmap();
 //            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
