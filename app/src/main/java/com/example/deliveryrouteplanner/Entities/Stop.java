@@ -1,6 +1,7 @@
 package com.example.deliveryrouteplanner.Entities;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -13,21 +14,24 @@ public class Stop {
     private String address;
     private String status;
     private Date timestamp;
+    private Date estArrival;
     private String photoPath;
     private String barcode;
-    private String signaturePath;
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    private byte[] signature;
     private int routeID;
 
     //constructor
 
-    public Stop(int stopID, String address, String status, Date timestamp, String photoPath, String barcode, String signaturePath, int routeID) {
+    public Stop(int stopID, String address, String status, Date timestamp,Date estArrival, String photoPath, String barcode, byte[] signature, int routeID) {
         this.stopID = stopID;
         this.address = address;
         this.status = status;
         this.timestamp = timestamp;
+        this.estArrival = estArrival;
         this.photoPath = photoPath;
         this.barcode = barcode;
-        this.signaturePath = signaturePath;
+        this.signature = signature;
         this.routeID = routeID;
     }
 
@@ -83,12 +87,20 @@ public class Stop {
         this.barcode = barcode;
     }
 
-    public String getSignaturePath() {
-        return signaturePath;
+    public Date getEstArrival() {
+        return estArrival;
     }
 
-    public void setSignaturePath(String signaturePath) {
-        this.signaturePath = signaturePath;
+    public void setEstArrival(Date estArrival) {
+        this.estArrival = estArrival;
+    }
+
+    public byte[] getSignature() {
+        return signature;
+    }
+
+    public void setSignature(byte[] signature) {
+        this.signature = signature;
     }
 
     public int getRouteID() {

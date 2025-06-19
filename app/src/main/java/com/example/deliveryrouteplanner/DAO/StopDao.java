@@ -28,6 +28,6 @@ public interface StopDao {
     LiveData<List<Stop>> getAllStops();
 
     //query for stops on selected route
-    @Query("SELECT * FROM STOPS WHERE routeID = :rouID ORDER BY stopID ASC")
-    LiveData<List<Stop>> getAssociatedStops(String rouID);
+    @Query("SELECT * FROM STOPS WHERE routeID = :routeID ORDER BY stopID ASC")
+    LiveData<List<Stop>> getAssociatedStops(int routeID);
 }

@@ -36,6 +36,32 @@
         app:layout_constraintTop_toBottomOf="@id/stopdetailstoolbar"
         tools:layout_editor_absoluteX="4dp">
 
+        <LinearLayout
+            android:id="@+id/stopdetailsetalinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/stopdetailstoolbar">
+
+            <TextView
+                android:id="@+id/textViewStopDetailsETA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Delivery ETA:"
+                android:textSize="20dp" />
+            <EditText
+                android:id="@+id/editTextStopETA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:focusable="false"
+                android:clickable="true"
+                android:hint="estimated arrival time"
+                android:inputType="time" />
+        </LinearLayout>
 
     <LinearLayout
         android:id="@+id/stopdetailsstoplocationlinear"
@@ -43,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/stopdetailstoolbar">
+        app:layout_constraintTop_toBottomOf="@id/stopdetailsetalinear">
 
         <TextView
             android:id="@+id/textViewStopDetailsStopLocation"
@@ -114,26 +140,31 @@
             android:padding="10dp"
             android:text="Signature:"
             android:textSize="20dp" />
-
-        <!--TODO: popup for signature needs added-->
-        <ImageButton
-            android:id="@+id/imageButtonSignature"
+        <LinearLayout
+            android:id="@+id/stopdetailsignature"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="150dp"
             android:layout_gravity="center"
-            android:backgroundTint="@color/bluegray"
-            app:srcCompat="@drawable/outline_signature_24" />
-
-        <EditText
-            android:id="@+id/editTextSignature"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        <com.github.gcacace.signaturepad.views.SignaturePad
+            android:id="@+id/signature_pad"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_margin="16dp"
+            android:background="@android:color/white"
+            app:penColor="@android:color/black"
+            app:velocityFilterWeight="0.9" />
+        <ImageButton
+            android:id="@+id/imageButtonClearSignature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
-            android:hint="signature"
-            android:focusable="false"
-            android:clickable="true"/>
+            android:layout_gravity="end"
+            app:srcCompat="@drawable/outline_signature_24" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -228,8 +259,6 @@
                 android:textSize="12dp"
                 android:textStyle="bold" />
         </LinearLayout>
-        <!--TODO: add image buttons for status selection -->
-
     </LinearLayout>
 
     </LinearLayout>
@@ -328,7 +357,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/stopdetailsavedelete"
+        app:layout_constraintBottom_toBottomOf="@id/stopdetailsavedelete"
         app:layout_constraintStart_toStartOf="parent">
 
     <TextView
@@ -346,13 +375,14 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="time"
+            android:clickable="true"
             android:focusable="false"/>
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageViewEmptyImage"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"

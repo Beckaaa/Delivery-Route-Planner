@@ -77,7 +77,7 @@ public class Repository {
         return mAllReports;
     }
     //db query associated stops
-    public LiveData<List<Stop>> getmAssociatedStops(String routeID) {
+    public LiveData<List<Stop>> getmAssociatedStops(int routeID) {
         databaseExecutor.execute(()-> {
             mAssociatedStops= mStopDao.getAssociatedStops(routeID);
         });

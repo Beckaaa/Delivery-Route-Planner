@@ -166,16 +166,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="StopDetails home button functionality, UI updated, RouteDetails fab visibility validation logic">
+    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="current route functionality, active status functional for edit current route">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/RouteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/RouteDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/StopDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/StopDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Database/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Database/Repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Database/RoutePlannerDatabaseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Database/RoutePlannerDatabaseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Stop.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Stop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/ViewModels/RouteViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/ViewModels/RouteViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_route_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_route_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/ViewModels/StopViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/ViewModels/StopViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_stop_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_stop_details.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -459,7 +462,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750313861618</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="current route functionality, active status functional for edit current route">
+      <option name="closed" value="true" />
+      <created>1750318750222</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1750318750222</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -486,7 +497,8 @@
     <MESSAGE value="RouteDetails data filling from intent,datepickercontroller created" />
     <MESSAGE value="RouteDetails save and delete functionality, recyclerview corrections" />
     <MESSAGE value="StopDetails home button functionality, UI updated, RouteDetails fab visibility validation logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="StopDetails home button functionality, UI updated, RouteDetails fab visibility validation logic" />
+    <MESSAGE value="current route functionality, active status functional for edit current route" />
+    <option name="LAST_COMMIT_MESSAGE" value="current route functionality, active status functional for edit current route" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -504,12 +516,12 @@
       <map>
         <entry key="com.example.deliveryrouteplanner">
           <value>
-            <CheckInfo lastCheckTimestamp="1750237350546" />
+            <CheckInfo lastCheckTimestamp="1750323880488" />
           </value>
         </entry>
         <entry key="com.example.deliveryrouteplanner.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1750237350530" />
+            <CheckInfo lastCheckTimestamp="1750323880487" />
           </value>
         </entry>
       </map>

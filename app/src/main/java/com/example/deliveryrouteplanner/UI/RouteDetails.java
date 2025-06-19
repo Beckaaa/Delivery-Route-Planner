@@ -18,6 +18,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -25,6 +26,7 @@ import com.example.deliveryrouteplanner.Database.Repository;
 import com.example.deliveryrouteplanner.Entities.Route;
 import com.example.deliveryrouteplanner.R;
 import com.example.deliveryrouteplanner.ViewModels.RouteViewModel;
+import com.example.deliveryrouteplanner.ViewModels.StopViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;
@@ -131,6 +133,16 @@ public class RouteDetails extends AppCompatActivity {
 
 
         //TODO: create the StopAdapter and add the recyclerview for associated stops list
+        RecyclerView stopRecyclerView = findViewById(R.id.routedetailsrecyclerview);
+        StopAdapter stopAdapter = new StopAdapter(this);
+        stopRecyclerView.setAdapter(stopAdapter);
+        stopRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        StopViewModel stopViewModel = new ViewModelProvider(this).get(StopViewModel.class);
+        stopViewModel.getAssociatedStops(routeID).observe(this, stops -> {
+            stopAdapter.setStops(stops);
+        });
+
         //save button functionality
         routeViewModel = new ViewModelProvider(this).get(RouteViewModel.class);
         routeViewModel.getAllRoutes().observe(this, routes -> {
