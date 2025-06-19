@@ -18,13 +18,14 @@ public class Route {
     private boolean isActive;
 
     //constructor
-    public Route(int routeID, Date date, String startLocation, String endLocation, int totalDistance, int stopCount) {
+    public Route(int routeID, Date date, String startLocation, String endLocation, int totalDistance, int stopCount, boolean isActive) {
         this.routeID = routeID;
         this.date = date;
         this.startLocation = startLocation;
         this.endLocation = endLocation;
         this.totalDistance = totalDistance;
         this.stopCount = stopCount;
+        this.isActive = isActive;
     }
     //getters and setters
 

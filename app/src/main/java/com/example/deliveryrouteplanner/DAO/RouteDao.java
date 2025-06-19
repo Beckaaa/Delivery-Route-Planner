@@ -31,7 +31,9 @@ public interface RouteDao {
     @Query("SELECT * FROM ROUTES WHERE isActive = 1 LIMIT 1")
     LiveData<Route> getActiveRoute();
 
-
     List<Route> cachedRoutes = new ArrayList<>();
+
+    @Query("UPDATE ROUTES SET isActive = 0")
+    void deactivateAllRoutes();
 
 }

@@ -15,10 +15,17 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
+import com.example.deliveryrouteplanner.Database.Repository;
+import com.example.deliveryrouteplanner.Entities.Route;
+import com.example.deliveryrouteplanner.ViewModels.RouteViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.example.deliveryrouteplanner.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 //adding firebase authentication logout option
@@ -26,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView createnewroute;
     private ImageView editcurrentroute;
     private ImageView viewreports;
+    private Repository repository;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +64,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, RouteDetails.class));
             }
         });
-
+        RouteViewModel routeViewModel = new ViewModelProvider(this).get(RouteViewModel.class);
         editcurrentroute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, RouteDetails.class));
+                routeViewModel.getActiveRoute().observe(MainActivity.this, route -> {
+                if(route != null) {
+                    Intent intent = new Intent(MainActivity.this, RouteDetails.class);
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
+                    intent.putExtra("routeID", route.getRouteID());
+                    intent.putExtra("startLocation", route.getStartLocation());
+                    intent.putExtra("endLocation", route.getEndLocation());
+                    intent.putExtra("date", sdf.format(route.getDate()));
+                    intent.putExtra("totalDistance", route.getTotalDistance());
+                    intent.putExtra("stopCount", route.getStopCount());
+                    intent.putExtra("routeActive", route.isActive());
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "No active route found", Toast.LENGTH_SHORT).show();
+                }
+                });
             }
         });
 

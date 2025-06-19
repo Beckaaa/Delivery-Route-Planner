@@ -14,8 +14,10 @@ import com.example.deliveryrouteplanner.Entities.Route;
 import com.example.deliveryrouteplanner.R;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.RouteViewHolder> {
     private final Context context;
@@ -32,13 +34,15 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.RouteViewHol
                 public void onClick(View view){
                     int position = getAdapterPosition();
                     final Route current = mRoutes.get(position);
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
                     Intent intent = new Intent(context, RouteDetails.class);
                     intent.putExtra("routeID", current.getRouteID());
                     intent.putExtra("startLocation", current.getStartLocation());
                     intent.putExtra("endLocation", current.getEndLocation());
-                    intent.putExtra("date", current.getDate().toString());
+                    intent.putExtra("date", sdf.format(current.getDate()));
                     intent.putExtra("totalDistance", current.getTotalDistance());
                     intent.putExtra("stopCount", current.getStopCount());
+                    intent.putExtra("routeActive", current.isActive());
                     context.startActivity(intent);
                 }
             });

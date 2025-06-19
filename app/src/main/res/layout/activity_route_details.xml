@@ -174,7 +174,13 @@
             android:layout_margin="10dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/routedetailsendlocationlinear">
-
+            <CheckBox
+                android:id="@+id/checkBoxActive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="50dp"
+                android:text="Active Route" />
             <LinearLayout
                 android:id="@+id/routedetailsavelinear"
                 android:layout_width="wrap_content"
@@ -199,7 +205,6 @@
                     android:textSize="12dp"
                     android:textStyle="bold" />
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/routedetaildeletelinear"
                 android:layout_width="wrap_content"
@@ -207,7 +212,6 @@
                 android:layout_gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@id/routedetailsendlocationlinear">
-
                 <ImageButton
                     android:id="@+id/routedetailsdeletebutton"
                     android:layout_width="wrap_content"
@@ -225,7 +229,6 @@
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
-
 
     </LinearLayout>
     <TextView

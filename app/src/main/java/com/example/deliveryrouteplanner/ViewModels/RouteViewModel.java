@@ -30,4 +30,15 @@ public class RouteViewModel extends AndroidViewModel {
     public void delete(Route route) {
         repository.delete(route);
     }
+    public void update(Route route){
+        repository.update(route);
+    }
+    public void deactivateAllRoutes(){
+        repository.deactivateAllRoutes();
+    }
+
+    public LiveData<Route> getActiveRoute() {
+        return repository.getActiveRoute();
+    }
+
 }

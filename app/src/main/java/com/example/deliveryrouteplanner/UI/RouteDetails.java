@@ -6,6 +6,7 @@ import android.content.Intent;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -52,7 +53,8 @@ public class RouteDetails extends AppCompatActivity {
     int totalDistance;
     private RouteViewModel routeViewModel;
     private List<Route> cachedRoutes = new ArrayList<>();
-
+    CheckBox editRouteActive;
+    boolean routeActive;
 
 
     @Override
@@ -88,6 +90,7 @@ public class RouteDetails extends AppCompatActivity {
         editEndLocation = findViewById(R.id.editTextEndLocation);
         editStopCount = findViewById(R.id.editTextStopCount);
         editTotalDistance = findViewById(R.id.editTextTotalDistance);
+        editRouteActive = findViewById(R.id.checkBoxActive);
         routeID = getIntent().getIntExtra("routeID", -1);
         //fab invisible until the route is saved
         if (routeID == -1) {
@@ -109,6 +112,8 @@ public class RouteDetails extends AppCompatActivity {
         endLocation = getIntent().getStringExtra("endLocation");
         stopCount = getIntent().getIntExtra("stopCount", 0);
         totalDistance = getIntent().getIntExtra("totalDistance", 0);
+        routeActive = getIntent().getBooleanExtra("routeActive", false);
+
 
         if (date != null){
             editDate.setText(date);
@@ -119,6 +124,7 @@ public class RouteDetails extends AppCompatActivity {
         editEndLocation.setText(endLocation);
         editStopCount.setText(String.valueOf(stopCount));
         editTotalDistance.setText(String.valueOf(totalDistance));
+        editRouteActive.setChecked(routeActive);
         editDate.setOnClickListener(v -> datePicker.showDate(editDate));
 
 
@@ -161,7 +167,7 @@ public class RouteDetails extends AppCompatActivity {
                     }
                     //parse date
                     Date dateValue;
-                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy", Locale.US);
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
                     try {
                         dateValue = sdf.parse(editDate.getText().toString().trim());
                     } catch (ParseException e) {
@@ -169,19 +175,68 @@ public class RouteDetails extends AppCompatActivity {
                         return;
                     }
 
+                    boolean isActive = editRouteActive.isChecked();
+                    if (isActive) {
+                        routeViewModel.deactivateAllRoutes();
+                    }
                     Route route = new Route(
                             newRouteID,
                             dateValue,
                             editStartLocation.getText().toString(),
                             editEndLocation.getText().toString(),
                             editStopCountValue,
-                            editTotalDistanceValue
+                            editTotalDistanceValue,
+                            isActive
                     );
                     routeViewModel.insert(route);
                     Toast.makeText(RouteDetails.this, "Saved Successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RouteDetails.this, "Previous active routes were deactivated.", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(RouteDetails.this, RouteList.class));
                     // make fab visible after save when opening route again
                     fab.setVisibility(View.VISIBLE);
+                }
+                else {
+                    int editStopCountValue;
+                    try {
+                        editStopCountValue = Integer.parseInt(editStopCount.getText().toString().trim());
+                    } catch (NumberFormatException e) {
+                        editStopCount.setError("Invalid stop count");
+                        return;
+                    }
+                    //parse distance
+                    int editTotalDistanceValue;
+                    try {
+                        editTotalDistanceValue = Integer.parseInt(editTotalDistance.getText().toString().trim());
+                    }
+                    catch (NumberFormatException e) {
+                        editTotalDistance.setError("Invalid total distance");
+                        return;
+                    }
+                    //parse date
+                    Date dateValue;
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
+                    try {
+                        dateValue = sdf.parse(editDate.getText().toString().trim());
+                    } catch (ParseException e) {
+                        editDate.setError("Invalid date format");
+                        return;
+                    }
+
+                    boolean isActive = editRouteActive.isChecked();
+                    if (isActive) {
+                        routeViewModel.deactivateAllRoutes();
+                    }
+                    Route route = new Route(
+                            routeID,
+                            dateValue,
+                            editStartLocation.getText().toString(),
+                            editEndLocation.getText().toString(),
+                            editStopCountValue,
+                            editTotalDistanceValue,
+                            isActive
+                    );
+                    routeViewModel.update(route);
+                    Toast.makeText(RouteDetails.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -195,7 +250,7 @@ public class RouteDetails extends AppCompatActivity {
                             .setMessage("Are you sure you want to delete this route?")
                             .setPositiveButton("Delete", (dialog, which) -> {
                                 Date dateValue;
-                                SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
+                                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
                                 try {
                                     dateValue = sdf.parse(editDate.getText().toString().trim());
                                 } catch (ParseException e) {
@@ -203,7 +258,7 @@ public class RouteDetails extends AppCompatActivity {
                                     return;
                                 }
                                 Route routeToDelete = new Route(
-                                        routeID, dateValue, startLocation, endLocation, stopCount, totalDistance);
+                                        routeID, dateValue, startLocation, endLocation, stopCount, totalDistance,routeActive);
                                 routeViewModel.delete(routeToDelete);
                                 Toast.makeText(RouteDetails.this, "Route deleted", Toast.LENGTH_SHORT).show();
                                 //returns to route list after deleting

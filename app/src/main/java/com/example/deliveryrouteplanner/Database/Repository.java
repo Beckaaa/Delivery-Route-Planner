@@ -137,4 +137,11 @@ public class Repository {
             mReportDao.delete(report);
         });
     }
+
+    public void deactivateAllRoutes() {
+        databaseExecutor.execute(()-> mRouteDao.deactivateAllRoutes());
+    }
+    public LiveData<Route> getActiveRoute(){
+        return mRouteDao.getActiveRoute();
+    }
 }
