@@ -14,8 +14,10 @@ import com.example.deliveryrouteplanner.Entities.Stop;
 import com.example.deliveryrouteplanner.R;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 public class StopAdapter extends RecyclerView.Adapter<StopAdapter.StopViewHolder> {
@@ -34,23 +36,13 @@ public class StopAdapter extends RecyclerView.Adapter<StopAdapter.StopViewHolder
                     int position = getAdapterPosition();
                     final Stop current = mStops.get(position);
                     Intent intent = new Intent(context, StopDetails.class);
-                    intent.putExtra("routeID", current.getRouteID());
-                    intent.putExtra("stopID", current.getStopID());
-                    intent.putExtra("address", current.getAddress());
-                    intent.putExtra("barcode", current.getBarcode());
-                    intent.putExtra("status", current.getStatus());
-                    intent.putExtra("signature", current.getSignature());
-                    intent.putExtra("estArrival", current.getEstArrival());
-                    intent.putExtra("timeComplete", current.getTimestamp());
-                    //TODO: add photopath intent
+                    intent.putExtra("stop", current);
                     context.startActivity(intent);
-
 
                 }
             });
         }
     }
-
 
     @NonNull
     @Override
@@ -63,7 +55,9 @@ public class StopAdapter extends RecyclerView.Adapter<StopAdapter.StopViewHolder
     public void onBindViewHolder(@NonNull StopAdapter.StopViewHolder holder, int position) {
         if(!mStops.isEmpty()) {
             Stop current = mStops.get(position);
-            holder.stopItemView.setText("Stop: " + current.getAddress() + " ETA: " + current.getEstArrival());
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.US);
+            String etaFormatted = timeFormat.format(current.getEstArrival());
+            holder.stopItemView.setText("Stop: " + current.getAddress() + " ETA: " + etaFormatted);
         }
     }
 

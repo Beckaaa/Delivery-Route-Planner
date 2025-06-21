@@ -160,15 +160,28 @@
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/xml/file_paths.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="stop details working- current stop status, time picker, stop adapter created">
+    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="stop details todo notes, changed stop details parent activity to route details">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/file_paths.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/StopDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/StopDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Database/RoutePlannerDatabaseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Database/RoutePlannerDatabaseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Stop.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Stop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_stop_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_stop_details.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,9 +218,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -257,6 +270,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Becka/AndroidStudioProjects/d424-software-engineering-capstone",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "database.inspector"
   }
 }]]></component>
@@ -468,7 +482,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750333442022</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="stop details todo notes, changed stop details parent activity to route details">
+      <option name="closed" value="true" />
+      <created>1750334109174</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1750334109174</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -497,7 +519,9 @@
     <MESSAGE value="StopDetails home button functionality, UI updated, RouteDetails fab visibility validation logic" />
     <MESSAGE value="current route functionality, active status functional for edit current route" />
     <MESSAGE value="stop details working- current stop status, time picker, stop adapter created" />
-    <option name="LAST_COMMIT_MESSAGE" value="stop details working- current stop status, time picker, stop adapter created" />
+    <MESSAGE value="stop details todo notes" />
+    <MESSAGE value="stop details todo notes, changed stop details parent activity to route details" />
+    <option name="LAST_COMMIT_MESSAGE" value="stop details todo notes, changed stop details parent activity to route details" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -515,12 +539,12 @@
       <map>
         <entry key="com.example.deliveryrouteplanner">
           <value>
-            <CheckInfo lastCheckTimestamp="1750323880488" />
+            <CheckInfo lastCheckTimestamp="1750472980062" />
           </value>
         </entry>
         <entry key="com.example.deliveryrouteplanner.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1750323880487" />
+            <CheckInfo lastCheckTimestamp="1750472980062" />
           </value>
         </entry>
       </map>

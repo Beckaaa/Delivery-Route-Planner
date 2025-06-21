@@ -2,6 +2,8 @@ package com.example.deliveryrouteplanner.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,6 +49,14 @@ public class RouteList extends AppCompatActivity {
             startActivity(intent);
         });
 
+        //home button to navigate to main activity (dashboard)
+        ImageButton home = findViewById(R.id.homebutton);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RouteList.this, MainActivity.class));
+            }
+        });
         //display routes in recycler view
         RecyclerView recyclerView = findViewById(R.id.routelistrecyclerview);
         final RouteAdapter adapter = new RouteAdapter(this);

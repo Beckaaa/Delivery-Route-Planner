@@ -17,7 +17,7 @@ import com.example.deliveryrouteplanner.Entities.Stop;
 
 import Controller.Converters;
 
-@Database(entities = {Route.class, Stop.class, Report.class}, version= 3, exportSchema = false)
+@Database(entities = {Route.class, Stop.class, Report.class}, version= 7, exportSchema = false)
 @TypeConverters(Converters.class)
 public abstract class RoutePlannerDatabaseBuilder extends RoomDatabase {
     public abstract RouteDao routeDao();

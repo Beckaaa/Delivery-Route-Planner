@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bluegray"
     tools:context=".UI.StopDetails">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/stopdetailstoolbar"
         android:layout_width="match_parent"
@@ -14,15 +14,16 @@
         android:background="@color/yellow"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageButton
             android:id="@+id/homebutton"
-            android:backgroundTint="@color/yellow"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/yellow"
             app:srcCompat="@drawable/outline_delivery_truck_speed_24" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -51,217 +52,222 @@
                 android:padding="10dp"
                 android:text="Delivery ETA:"
                 android:textSize="20dp" />
+
             <EditText
                 android:id="@+id/editTextStopETA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
                 android:ems="10"
                 android:focusable="false"
-                android:clickable="true"
                 android:hint="estimated arrival time"
                 android:inputType="time" />
         </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/stopdetailsstoplocationlinear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/stopdetailsetalinear">
-
-        <TextView
-            android:id="@+id/textViewStopDetailsStopLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Stop Address:"
-            android:textSize="20dp" />
-
-        <EditText
-            android:id="@+id/editTextStopLocation"
+        <LinearLayout
+            android:id="@+id/stopdetailsstoplocationlinear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="stop address"
-            android:inputType="textPostalAddress" />
-    </LinearLayout>
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/stopdetailsetalinear">
 
-    <LinearLayout
-        android:id="@+id/stopdetailsbarcodelinear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/stopdetailsstoplocationlinear">
-
-        <TextView
-            android:id="@+id/textViewStopDetailsBarcode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Barcode:"
-            android:textSize="20dp" />
-
-        <ImageButton
-            android:id="@+id/imageButtonBarcode"
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/bluegray"
-            app:srcCompat="@drawable/outline_barcode_scanner_24" />
-
-        <EditText
-            android:id="@+id/editTextBarcode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="barcode" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/stopdetailsignaturelinear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/stopdetailsbarcodelinear">
-
-        <TextView
-            android:id="@+id/textViewStopDetailsSignature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Signature:"
-            android:textSize="20dp" />
-        <LinearLayout
-            android:id="@+id/stopdetailsignature"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-        <com.github.gcacace.signaturepad.views.SignaturePad
-            android:id="@+id/signature_pad"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_margin="16dp"
-            android:background="@android:color/white"
-            app:penColor="@android:color/black"
-            app:velocityFilterWeight="0.9" />
-        <ImageButton
-            android:id="@+id/imageButtonClearSignature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="end"
-            app:srcCompat="@drawable/outline_signature_24" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/stopdetailsstatuslinear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/stopdetailsignaturelinear">
-
-        <TextView
-            android:id="@+id/textViewStopDetailsStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Status:"
-            android:textSize="20dp" />
-        <LinearLayout
-            android:id="@+id/stopdetailpending"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-        <ImageButton
-            android:id="@+id/imageButtonPending"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/bluegray"
-            app:srcCompat="@drawable/outline_pending_24" />
-        <TextView
-            android:id="@+id/textViewStopDetailsPending"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Pending"
-            android:textSize="12dp"
-            android:textStyle="bold" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/stopdetailsuccess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            android:layout_marginEnd="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-        <ImageButton
-            android:id="@+id/imageButtonSuccess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/bluegray"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/outline_check_circle" />
             <TextView
-                android:id="@+id/textViewStopDetailsSuccess"
+                android:id="@+id/textViewStopDetailsStopLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Success"
-                android:textSize="12dp"
-                android:textStyle="bold" />
+                android:padding="10dp"
+                android:text="Stop Address:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/editTextStopLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="stop address"
+                android:inputType="textPostalAddress" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/stopdetailsbarcodelinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/stopdetailsstoplocationlinear">
+
+            <TextView
+                android:id="@+id/textViewStopDetailsDeliveryID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Delivery ID:"
+                android:textSize="20dp" />
+
+
+            <EditText
+                android:id="@+id/editTextDeliveryID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="delivery id" />
+
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/stopdetailfailed"
-            android:layout_width="wrap_content"
+            android:id="@+id/stopdetailsignaturelinear"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-        <ImageButton
-            android:id="@+id/imageButtonFailed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/bluegray"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/outline_failed_circle" />
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/stopdetailsbarcodelinear">
+
             <TextView
-                android:id="@+id/textViewStopDetailsFailed"
+                android:id="@+id/textViewStopDetailsSignature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Failed"
-                android:textSize="12dp"
-                android:textStyle="bold" />
+                android:padding="10dp"
+                android:text="Signature:"
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:id="@+id/stopdetailsignature"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.github.gcacace.signaturepad.views.SignaturePad
+                    android:id="@+id/signature_pad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="16dp"
+                    android:background="@android:color/white"
+                    app:penColor="@android:color/black"
+                    app:velocityFilterWeight="0.9" />
+
+                <ImageButton
+                    android:id="@+id/imageButtonClearSignature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/outline_signature_24" />
+            </LinearLayout>
+
         </LinearLayout>
-    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/stopdetailsstatuslinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/stopdetailsignaturelinear">
+
+            <TextView
+                android:id="@+id/textViewStopDetailsStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Status:"
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:id="@+id/stopdetailpending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageButton
+                    android:id="@+id/imageButtonPending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/bluegray"
+                    app:srcCompat="@drawable/outline_pending_24" />
+
+                <TextView
+                    android:id="@+id/textViewStopDetailsPending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Pending"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/stopdetailsuccess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageButton
+                    android:id="@+id/imageButtonSuccess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/bluegray"
+                    app:srcCompat="@drawable/outline_check_circle" />
+
+                <TextView
+                    android:id="@+id/textViewStopDetailsSuccess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Success"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/stopdetailfailed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageButton
+                    android:id="@+id/imageButtonFailed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/bluegray"
+                    app:srcCompat="@drawable/outline_failed_circle" />
+
+                <TextView
+                    android:id="@+id/textViewStopDetailsFailed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Failed"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/stopdetailsavedelete"
         android:layout_width="wrap_content"
@@ -296,6 +302,7 @@
                 android:textSize="12dp"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/stopdetaildeletelinear"
             android:layout_width="wrap_content"
@@ -322,8 +329,9 @@
         </LinearLayout>
     </LinearLayout>
 
+    <!--TODO: Set details reason invisible until failed status selected-->
     <LinearLayout
-        android:id="@+id/stopdetailsphotolinear"
+        android:id="@+id/stopdetailsreasonlinear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -332,25 +340,24 @@
         tools:layout_editor_absoluteX="5dp">
 
         <TextView
-            android:id="@+id/textViewStopDetailsPhoto"
+            android:id="@+id/textViewStopDetailReasonFail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Photo Confirmation:"
+            android:text="Reason for Failed Delivery:"
             android:textSize="20dp" />
 
-        <ImageButton
-            android:id="@+id/imageButtonCamera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:backgroundTint="@color/bluegray"
-            app:srcCompat="@drawable/outline_photo_camera_24" />
-
-        <!--TODO: add optional picture to the status page-->
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/imageButtonCamera"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:backgroundTint="@color/bluegray"-->
+        <!--            app:srcCompat="@drawable/outline_photo_camera_24" />-->
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/stopdetailstimelinear"
         android:layout_width="wrap_content"
@@ -360,34 +367,44 @@
         app:layout_constraintBottom_toBottomOf="@id/stopdetailsavedelete"
         app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/textViewStopDetailsTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Time Completed:"
-        android:textSize="15dp" />
+        <TextView
+            android:id="@+id/textViewStopDetailsTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Time Completed:"
+            android:textSize="15dp" />
 
         <EditText
-            android:id="@+id/editTextTime"
+            android:id="@+id/editTextTimeComplete"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
-            android:inputType="time"
             android:clickable="true"
-            android:focusable="false"/>
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="time" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageViewEmptyImage"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+
+    <EditText
+        android:id="@+id/editTextReason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/stopdetailsphotolinear"
-        app:layout_constraintBottom_toTopOf="@id/stopdetailstimelinear"
-        app:srcCompat="@drawable/outline_image_24" />
+        app:layout_constraintTop_toBottomOf="@+id/stopdetailsreasonlinear" />
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageViewEmptyImage"-->
+    <!--        android:layout_width="150dp"-->
+    <!--        android:layout_height="150dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.502"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/stopdetailsphotolinear"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/stopdetailstimelinear"-->
+    <!--        app:srcCompat="@drawable/outline_image_24" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

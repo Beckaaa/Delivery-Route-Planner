@@ -1,36 +1,38 @@
 package com.example.deliveryrouteplanner.Entities;
 
-import androidx.annotation.NonNull;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity (tableName = "stops")
-public class Stop {
+public class Stop implements Serializable {
     @PrimaryKey (autoGenerate = true)
     private int stopID;
     private String address;
     private String status;
     private Date timestamp;
     private Date estArrival;
-    private String photoPath;
-    private String barcode;
+    private String deliveryID;
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     private byte[] signature;
     private int routeID;
+    private String failReason;
+
 
     //constructor
 
-    public Stop(int stopID, String address, String status, Date timestamp,Date estArrival, String photoPath, String barcode, byte[] signature, int routeID) {
+    public Stop (int stopID, String address, String status, Date timestamp,Date estArrival, String deliveryID, String failReason, byte[] signature, int routeID) {
         this.stopID = stopID;
         this.address = address;
         this.status = status;
         this.timestamp = timestamp;
         this.estArrival = estArrival;
-        this.photoPath = photoPath;
-        this.barcode = barcode;
+        this.failReason = failReason;
+        this.deliveryID = deliveryID;
         this.signature = signature;
         this.routeID = routeID;
     }
@@ -71,20 +73,9 @@ public class Stop {
         this.timestamp = timestamp;
     }
 
-    public String getPhotoPath() {
-        return photoPath;
-    }
 
-    public void setPhotoPath(String photoPath) {
-        this.photoPath = photoPath;
-    }
-
-    public String getBarcode() {
-        return barcode;
-    }
-
-    public void setBarcode(String barcode) {
-        this.barcode = barcode;
+    public String getDeliveryID() {
+        return deliveryID;
     }
 
     public Date getEstArrival() {
@@ -110,4 +101,17 @@ public class Stop {
     public void setRouteID(int routeID) {
         this.routeID = routeID;
     }
+
+    public void setDeliveryID(String deliveryID) {
+        this.deliveryID = deliveryID;
+    }
+
+    public String getFailReason() {
+        return failReason;
+    }
+
+    public void setFailReason(String failReason) {
+        this.failReason = failReason;
+    }
+
 }
