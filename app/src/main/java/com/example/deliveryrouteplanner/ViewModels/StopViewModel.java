@@ -13,18 +13,16 @@ import java.util.List;
 
 public class StopViewModel extends AndroidViewModel {
     private final Repository repository;
-    private final LiveData<List<Stop>> allStops;
     public StopViewModel(@NonNull Application application) {
         super(application);
         repository = new Repository(application);
-        allStops = repository.getmAllStops();
     }
 
-    public LiveData<List<Stop>> getAllStops() {
-        return allStops;
+    public LiveData<List<Stop>> getAllStops(String userID) {
+        return repository.getmAllStops(userID);
     }
-    public LiveData<List<Stop>> getAssociatedStops(int routeID) {
-        return repository.getmAssociatedStops(routeID);
+    public LiveData<List<Stop>> getAssociatedStops(int routeID, String userID) {
+        return repository.getmAssociatedStops(routeID, userID);
     }
     public void insert(Stop stop) {
         repository.insert(stop);

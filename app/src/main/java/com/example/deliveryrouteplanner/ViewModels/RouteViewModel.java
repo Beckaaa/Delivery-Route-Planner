@@ -14,15 +14,13 @@ import java.util.List;
 
 public class RouteViewModel extends AndroidViewModel {
     private final Repository repository;
-    private final LiveData<List<Route>> allRoutes;
     public RouteViewModel(@NonNull Application application) {
         super(application);
         repository = new Repository(application);
-        allRoutes = repository.getmAllRoutes();
     }
 
-    public LiveData<List<Route>> getAllRoutes() {
-        return allRoutes;
+    public LiveData<List<Route>> getAllRoutes(String userID) {
+        return repository.getmAllRoutes(userID);
     }
     public void insert(Route route) {
         repository.insert(route);
@@ -33,12 +31,12 @@ public class RouteViewModel extends AndroidViewModel {
     public void update(Route route){
         repository.update(route);
     }
-    public void deactivateAllRoutes(){
-        repository.deactivateAllRoutes();
+    public void deactivateAllRoutes(String userID){
+        repository.deactivateAllRoutes(userID);
     }
 
-    public LiveData<Route> getActiveRoute() {
-        return repository.getActiveRoute();
+    public LiveData<Route> getActiveRoute(String userID) {
+        return repository.getActiveRoute(userID);
     }
 
 }

@@ -4,6 +4,7 @@ package com.example.deliveryrouteplanner.UI;
 import android.app.AlertDialog;
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -17,6 +18,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,10 +26,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.deliveryrouteplanner.Database.Repository;
 import com.example.deliveryrouteplanner.Entities.Route;
+import com.example.deliveryrouteplanner.Entities.Stop;
 import com.example.deliveryrouteplanner.R;
 import com.example.deliveryrouteplanner.ViewModels.RouteViewModel;
 import com.example.deliveryrouteplanner.ViewModels.StopViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -134,18 +138,22 @@ public class RouteDetails extends AppCompatActivity {
 
         //TODO: create the StopAdapter and add the recyclerview for associated stops list
         RecyclerView stopRecyclerView = findViewById(R.id.routedetailsrecyclerview);
-        StopAdapter stopAdapter = new StopAdapter(this);
+        final StopAdapter stopAdapter = new StopAdapter(this);
         stopRecyclerView.setAdapter(stopAdapter);
         stopRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        SharedPreferences sharedPref = RouteDetails.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String userID = sharedPref.getString("uid", null);
         StopViewModel stopViewModel = new ViewModelProvider(this).get(StopViewModel.class);
-        stopViewModel.getAssociatedStops(routeID).observe(this, stops -> {
-            stopAdapter.setStops(stops);
+        stopViewModel.getAssociatedStops(routeID, userID).observe(this, new Observer<List<Stop>>() {
+                    @Override
+                    public void onChanged(List<Stop> stops) {
+                        stopAdapter.setStops(stops);
+                    }
         });
 
         //save button functionality
         routeViewModel = new ViewModelProvider(this).get(RouteViewModel.class);
-        routeViewModel.getAllRoutes().observe(this, routes -> {
+        routeViewModel.getAllRoutes(userID).observe(this, routes -> {
             if (routes != null) {
                 cachedRoutes = routes;
             }
@@ -189,8 +197,9 @@ public class RouteDetails extends AppCompatActivity {
 
                     boolean isActive = editRouteActive.isChecked();
                     if (isActive) {
-                        routeViewModel.deactivateAllRoutes();
+                        routeViewModel.deactivateAllRoutes(userID);
                     }
+                    String currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     Route route = new Route(
                             newRouteID,
                             dateValue,
@@ -198,7 +207,8 @@ public class RouteDetails extends AppCompatActivity {
                             editEndLocation.getText().toString(),
                             editStopCountValue,
                             editTotalDistanceValue,
-                            isActive
+                            isActive,
+                            currentUserID
                     );
                     routeViewModel.insert(route);
                     Toast.makeText(RouteDetails.this, "Saved Successfully", Toast.LENGTH_SHORT).show();
@@ -236,8 +246,10 @@ public class RouteDetails extends AppCompatActivity {
 
                     boolean isActive = editRouteActive.isChecked();
                     if (isActive) {
-                        routeViewModel.deactivateAllRoutes();
+                        routeViewModel.deactivateAllRoutes(userID);
                     }
+                    SharedPreferences sharedPref = RouteDetails.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+                    String uid = sharedPref.getString("uid", null);
                     Route route = new Route(
                             routeID,
                             dateValue,
@@ -245,7 +257,8 @@ public class RouteDetails extends AppCompatActivity {
                             editEndLocation.getText().toString(),
                             editStopCountValue,
                             editTotalDistanceValue,
-                            isActive
+                            isActive,
+                            uid
                     );
                     routeViewModel.update(route);
                     Toast.makeText(RouteDetails.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
@@ -269,8 +282,10 @@ public class RouteDetails extends AppCompatActivity {
                                     editDate.setError("Invalid date format");
                                     return;
                                 }
+                                SharedPreferences sharedPref = RouteDetails.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+                                String uid = sharedPref.getString("uid", null);
                                 Route routeToDelete = new Route(
-                                        routeID, dateValue, startLocation, endLocation, stopCount, totalDistance,routeActive);
+                                        routeID, dateValue, startLocation, endLocation, stopCount, totalDistance,routeActive, uid);
                                 routeViewModel.delete(routeToDelete);
                                 Toast.makeText(RouteDetails.this, "Route deleted", Toast.LENGTH_SHORT).show();
                                 //returns to route list after deleting

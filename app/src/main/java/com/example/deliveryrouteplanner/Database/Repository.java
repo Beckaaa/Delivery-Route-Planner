@@ -38,56 +38,20 @@ public class Repository {
     }
 
     //db query all routes
-    public LiveData<List<Route>> getmAllRoutes() {
-        databaseExecutor.execute(() -> {
-            mAllRoutes = mRouteDao.getAllRoutes();
-        });
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        return mAllRoutes;
+    public LiveData<List<Route>> getmAllRoutes(String userID) {
+        return mRouteDao.getAllRoutes(userID);
     }
     //db query all stops
-    public LiveData<List<Stop>> getmAllStops() {
-        databaseExecutor.execute(()-> {
-            mAllStops= mStopDao.getAllStops();
-        });
-        try {
-            Thread.sleep(1000);
-        }
-        catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        return mAllStops;
+    public LiveData<List<Stop>> getmAllStops(String userID) {
+        return mStopDao.getAllStops(userID);
     }
     //db query all reports
-    public LiveData<List<Report>> getmAllReports() {
-        databaseExecutor.execute(()-> {
-            mAllReports= mReportDao.getAllReports();
-        });
-        try {
-            Thread.sleep(1000);
-        }
-        catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        return mAllReports;
+    public LiveData<List<Report>> getmAllReports(String userID) {
+        return mReportDao.getAllReports(userID);
     }
     //db query associated stops
-    public LiveData<List<Stop>> getmAssociatedStops(int routeID) {
-        databaseExecutor.execute(()-> {
-            mAssociatedStops= mStopDao.getAssociatedStops(routeID);
-        });
-        try {
-            Thread.sleep(1000);
-        }
-        catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        return mAssociatedStops;
+    public LiveData<List<Stop>> getmAssociatedStops(int routeID, String userID) {
+        return mStopDao.getAssociatedStops(routeID, userID);
     }
     //db executor for insert update delete routes
     public void insert(Route route){
@@ -138,10 +102,10 @@ public class Repository {
         });
     }
 
-    public void deactivateAllRoutes() {
-        databaseExecutor.execute(()-> mRouteDao.deactivateAllRoutes());
+    public void deactivateAllRoutes(String userID) {
+        databaseExecutor.execute(()-> mRouteDao.deactivateAllRoutes(userID));
     }
-    public LiveData<Route> getActiveRoute(){
-        return mRouteDao.getActiveRoute();
+    public LiveData<Route> getActiveRoute(String userID){
+        return mRouteDao.getActiveRoute(userID);
     }
 }

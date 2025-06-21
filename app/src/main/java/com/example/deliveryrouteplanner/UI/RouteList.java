@@ -1,6 +1,7 @@
 package com.example.deliveryrouteplanner.UI;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -62,8 +63,10 @@ public class RouteList extends AppCompatActivity {
         final RouteAdapter adapter = new RouteAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        SharedPreferences sharedPref = RouteList.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String userID = sharedPref.getString("uid", null);
         routeViewModel = new ViewModelProvider(this).get(RouteViewModel.class);
-        routeViewModel.getAllRoutes().observe(this, new Observer<List<Route>>() {
+        routeViewModel.getAllRoutes(userID).observe(this, new Observer<List<Route>>() {
             @Override
             public void onChanged(List<Route> routes) {
                 adapter.setRoutes(routes);

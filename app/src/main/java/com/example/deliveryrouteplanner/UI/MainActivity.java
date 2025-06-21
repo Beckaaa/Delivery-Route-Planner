@@ -1,6 +1,7 @@
 package com.example.deliveryrouteplanner.UI;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -68,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
         editcurrentroute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                routeViewModel.getActiveRoute().observe(MainActivity.this, route -> {
+                SharedPreferences sharedPref = MainActivity.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+                String userID = sharedPref.getString("uid", null);
+                routeViewModel.getActiveRoute(userID).observe(MainActivity.this, route -> {
                 if(route != null) {
                     Intent intent = new Intent(MainActivity.this, RouteDetails.class);
                     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
@@ -116,9 +119,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, RouteList.class));
         }
 
-        if (item.getItemId() == R.id.dashmenustops) {
-            startActivity(new Intent(MainActivity.this, StopList.class));
-        }
 
         if (item.getItemId() == R.id.dashmenureports) {
             startActivity(new Intent(MainActivity.this, ReportList.class));

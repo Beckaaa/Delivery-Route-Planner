@@ -329,7 +329,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!--TODO: Set details reason invisible until failed status selected-->
     <LinearLayout
         android:id="@+id/stopdetailsreasonlinear"
         android:layout_width="match_parent"
@@ -387,15 +386,5 @@
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stopdetailsreasonlinear" />
-    <!--    <ImageView-->
-    <!--        android:id="@+id/imageViewEmptyImage"-->
-    <!--        android:layout_width="150dp"-->
-    <!--        android:layout_height="150dp"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.502"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/stopdetailsphotolinear"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/stopdetailstimelinear"-->
-    <!--        app:srcCompat="@drawable/outline_image_24" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

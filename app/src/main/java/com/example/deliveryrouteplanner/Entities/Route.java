@@ -1,6 +1,7 @@
 package com.example.deliveryrouteplanner.Entities;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -16,9 +17,11 @@ public class Route {
     private int totalDistance;
     private int stopCount;
     private boolean isActive;
+    @ColumnInfo(name = "userID")
+    private String userID;
 
     //constructor
-    public Route(int routeID, Date date, String startLocation, String endLocation, int totalDistance, int stopCount, boolean isActive) {
+    public Route(int routeID, Date date, String startLocation, String endLocation, int totalDistance, int stopCount, boolean isActive, String userID) {
         this.routeID = routeID;
         this.date = date;
         this.startLocation = startLocation;
@@ -26,6 +29,7 @@ public class Route {
         this.totalDistance = totalDistance;
         this.stopCount = stopCount;
         this.isActive = isActive;
+        this.userID = userID;
     }
     //getters and setters
 
@@ -83,5 +87,13 @@ public class Route {
 
     public void setStopCount(int stopCount) {
         this.stopCount = stopCount;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 }

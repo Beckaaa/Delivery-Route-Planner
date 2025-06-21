@@ -25,6 +25,6 @@ public interface ReportDao {
     @Delete
     void delete(Report report);
 
-    @Query("SELECT * FROM REPORTS ORDER BY reportID ASC")
-    LiveData<List<Report>> getAllReports();
+    @Query("SELECT * FROM REPORTS WHERE userID = :userID ORDER BY reportID ASC")
+    LiveData<List<Report>> getAllReports(String userID);
 }

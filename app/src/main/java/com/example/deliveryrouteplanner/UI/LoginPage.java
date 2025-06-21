@@ -1,6 +1,7 @@
 package com.example.deliveryrouteplanner.UI;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.example.deliveryrouteplanner.R;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -87,6 +89,11 @@ public class LoginPage extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        String uid = user.getUid();
+                        //shared preferences to get user id
+                        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+                        sharedPreferences.edit().putString("uid", uid).apply();
                         Toast.makeText(LoginPage.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginPage.this, MainActivity.class));
                     }

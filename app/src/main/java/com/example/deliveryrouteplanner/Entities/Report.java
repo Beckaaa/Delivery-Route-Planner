@@ -1,6 +1,7 @@
 package com.example.deliveryrouteplanner.Entities;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -13,14 +14,17 @@ public class Report {
     private Date dateGenerated;
     private int routeID;
     private String pdfPath;
+    @ColumnInfo(name = "userID")
+    private String userID;
 
     //constructor
 
-    public Report(int reportID, Date dateGenerated, int routeID, String pdfPath) {
+    public Report(int reportID, Date dateGenerated, int routeID, String pdfPath, String userID) {
         this.reportID = reportID;
         this.dateGenerated = dateGenerated;
         this.routeID = routeID;
         this.pdfPath = pdfPath;
+        this.userID = userID;
     }
 
 
@@ -56,5 +60,13 @@ public class Report {
 
     public void setPdfPath(String pdfPath) {
         this.pdfPath = pdfPath;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 }

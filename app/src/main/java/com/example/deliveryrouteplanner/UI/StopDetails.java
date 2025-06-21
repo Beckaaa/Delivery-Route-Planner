@@ -3,6 +3,7 @@ package com.example.deliveryrouteplanner.UI;
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
@@ -27,6 +28,7 @@ import com.example.deliveryrouteplanner.Entities.Stop;
 import com.example.deliveryrouteplanner.R;
 import com.example.deliveryrouteplanner.ViewModels.StopViewModel;
 import com.github.gcacace.signaturepad.views.SignaturePad;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.ByteArrayOutputStream;
 import java.text.ParseException;
@@ -51,12 +53,11 @@ public class StopDetails extends AppCompatActivity {
     String deliveryID;
     ImageButton clearSignature;
     EditText editTimeComplete;
-    int stopID;
+    int stopID = -1;
     int routeID;
     String reason;
     EditText editReason;
     private List<Stop> cachedStops = new ArrayList<>();
-
 
 
     @Override
@@ -116,19 +117,21 @@ public class StopDetails extends AppCompatActivity {
         editETA = findViewById(R.id.editTextStopETA);
         editTimeComplete = findViewById(R.id.editTextTimeComplete);
         editReason = findViewById(R.id.editTextReason);
-
+        routeID = getIntent().getIntExtra("routeID", -1);
 
         //using serializable extra instead of passing data individually
         Stop stop = (Stop) getIntent().getSerializableExtra("stop");
         if (stop != null) {
             stopID = stop.getStopID();
-            routeID =stop.getRouteID();
             editAddress.setText(stop.getAddress());
-            editETA.setText(new SimpleDateFormat ("HH:mm", Locale.US).format(stop.getEstArrival()));
+            if(stop.getEstArrival() != null) {
+                editETA.setText(new SimpleDateFormat("HH:mm", Locale.US).format(stop.getEstArrival()));
+            }
             editDeliveryID.setText(stop.getDeliveryID());
             editReason.setText(stop.getReason());
-            editTimeComplete.setText(new SimpleDateFormat ("HH:mm", Locale.US).format(stop.getTimestamp()));
-
+            if (stop.getTimestamp() != null) {
+                editTimeComplete.setText(new SimpleDateFormat("HH:mm", Locale.US).format(stop.getTimestamp()));
+            }
             status = stop.getStatus();
             if ("Success".equals(status)) {
                 btnSuccess.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.yellow));
@@ -166,8 +169,10 @@ public class StopDetails extends AppCompatActivity {
         });
 
         //save button functionality
+        SharedPreferences sharedPref = StopDetails.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String userID = sharedPref.getString("uid", null);
         StopViewModel stopViewModel = new ViewModelProvider(this).get(StopViewModel.class);
-        stopViewModel.getAllStops().observe(this, stops -> {
+        stopViewModel.getAllStops(userID).observe(this, stops -> {
             if (stops != null) {
                 cachedStops = stops;
             }
@@ -183,6 +188,7 @@ public class StopDetails extends AppCompatActivity {
                         ? 1
                         : cachedStops.get(cachedStops.size() - 1).getStopID() + 1
                         : stopID;
+
                 String addressVal = editAddress.getText().toString().trim();
                 String deliveryIDVal = editDeliveryID.getText().toString().trim();
                 Date etaVal = null;
@@ -220,7 +226,7 @@ public class StopDetails extends AppCompatActivity {
                     signatureBytes= existingStop.getSignature();
                 }
 
-
+                String currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 Stop stop = new Stop(
                         newStopID,
                         addressVal,
@@ -230,7 +236,8 @@ public class StopDetails extends AppCompatActivity {
                         reason,
                         deliveryIDVal,
                         signatureBytes,
-                        routeID
+                        routeID,
+                        currentUserID
                     );
                 if (stopID == -1) {
                     stopViewModel.insert(stop);
@@ -270,6 +277,8 @@ public class StopDetails extends AppCompatActivity {
                                 catch (ParseException e) {
                                     editETA.setError("Invalid time format");
                                 }
+                                SharedPreferences sharedPref = StopDetails.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+                                String uid = sharedPref.getString("uid", null);
                                 Stop stopToDelete = new Stop(stopID,
                                         address,
                                         status,
@@ -278,7 +287,9 @@ public class StopDetails extends AppCompatActivity {
                                         reason,
                                         deliveryID,
                                         null,
-                                        routeID);
+                                        routeID,
+                                        uid
+                                        );
                                 stopViewModel.delete(stopToDelete);
                                 Toast.makeText(StopDetails.this, "Stop deleted", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(StopDetails.this, RouteDetails.class));

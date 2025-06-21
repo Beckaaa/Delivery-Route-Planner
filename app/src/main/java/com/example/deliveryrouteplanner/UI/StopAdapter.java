@@ -37,6 +37,7 @@ public class StopAdapter extends RecyclerView.Adapter<StopAdapter.StopViewHolder
                     final Stop current = mStops.get(position);
                     Intent intent = new Intent(context, StopDetails.class);
                     intent.putExtra("stop", current);
+                    intent.putExtra("routeID", current.getRouteID());
                     context.startActivity(intent);
 
                 }

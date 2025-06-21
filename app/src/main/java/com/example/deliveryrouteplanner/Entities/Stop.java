@@ -22,10 +22,13 @@ public class Stop implements Serializable {
     private int routeID;
     private String reason;
 
+    @ColumnInfo(name = "userID")
+    private String userID;
+
 
     //constructor
 
-    public Stop (int stopID, String address, String status, Date timestamp,Date estArrival, String deliveryID, String reason, byte[] signature, int routeID) {
+    public Stop (int stopID, String address, String status, Date timestamp,Date estArrival, String deliveryID, String reason, byte[] signature, int routeID, String userID) {
         this.stopID = stopID;
         this.address = address;
         this.status = status;
@@ -35,6 +38,7 @@ public class Stop implements Serializable {
         this.deliveryID = deliveryID;
         this.signature = signature;
         this.routeID = routeID;
+        this.userID = userID;
     }
 
 
@@ -108,6 +112,14 @@ public class Stop implements Serializable {
 
     public String getReason() {
         return reason;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public void setReason(String reason) {

@@ -171,17 +171,28 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="stop details todo notes, changed stop details parent activity to route details">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/file_paths.xml" afterDir="false" />
+    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="additional security: added firebase uid check to display specific user's stops/routes only, removed stop list menu item">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/ReportDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/ReportDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/RouteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/RouteDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/StopDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/StopDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Database/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Database/Repository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Database/RoutePlannerDatabaseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Database/RoutePlannerDatabaseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Route.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Stop.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Stop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/CreateAccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/CreateAccountPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/ViewModels/RouteViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/ViewModels/RouteViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/ViewModels/StopViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/ViewModels/StopViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_stop_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_stop_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_dashboard.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -490,7 +501,23 @@
       <option name="project" value="LOCAL" />
       <updated>1750334109174</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="stop details signature, save, delete functionality, and navigation correction for route list">
+      <option name="closed" value="true" />
+      <created>1750494740173</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1750494740173</updated>
+    </task>
+    <task id="LOCAL-00018" summary="stop details signature, save, delete functionality, and navigation correction for route list">
+      <option name="closed" value="true" />
+      <created>1750494900925</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1750494900925</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -521,18 +548,9 @@
     <MESSAGE value="stop details working- current stop status, time picker, stop adapter created" />
     <MESSAGE value="stop details todo notes" />
     <MESSAGE value="stop details todo notes, changed stop details parent activity to route details" />
-    <option name="LAST_COMMIT_MESSAGE" value="stop details todo notes, changed stop details parent activity to route details" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/LoginPage.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="stop details signature, save, delete functionality, and navigation correction for route list" />
+    <MESSAGE value="additional security: added firebase uid check to display specific user's stops/routes only, removed stop list menu item" />
+    <option name="LAST_COMMIT_MESSAGE" value="additional security: added firebase uid check to display specific user's stops/routes only, removed stop list menu item" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
