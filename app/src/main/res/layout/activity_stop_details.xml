@@ -344,17 +344,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Reason for Failed Delivery:"
+            android:text="Notes:"
             android:textSize="20dp" />
-
-        <!--        <ImageButton-->
-        <!--            android:id="@+id/imageButtonCamera"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_gravity="center"-->
-        <!--            android:layout_weight="1"-->
-        <!--            android:backgroundTint="@color/bluegray"-->
-        <!--            app:srcCompat="@drawable/outline_photo_camera_24" />-->
 
     </LinearLayout>
 

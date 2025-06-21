@@ -53,8 +53,8 @@ public class StopDetails extends AppCompatActivity {
     EditText editTimeComplete;
     int stopID;
     int routeID;
-    String failReason;
-    EditText editFailReason;
+    String reason;
+    EditText editReason;
     private List<Stop> cachedStops = new ArrayList<>();
 
 
@@ -115,7 +115,7 @@ public class StopDetails extends AppCompatActivity {
         editDeliveryID = findViewById(R.id.editTextDeliveryID);
         editETA = findViewById(R.id.editTextStopETA);
         editTimeComplete = findViewById(R.id.editTextTimeComplete);
-        editFailReason = findViewById(R.id.editTextReason);
+        editReason = findViewById(R.id.editTextReason);
 
 
         //using serializable extra instead of passing data individually
@@ -126,7 +126,7 @@ public class StopDetails extends AppCompatActivity {
             editAddress.setText(stop.getAddress());
             editETA.setText(new SimpleDateFormat ("HH:mm", Locale.US).format(stop.getEstArrival()));
             editDeliveryID.setText(stop.getDeliveryID());
-            editFailReason.setText(stop.getFailReason());
+            editReason.setText(stop.getReason());
             editTimeComplete.setText(new SimpleDateFormat ("HH:mm", Locale.US).format(stop.getTimestamp()));
 
             status = stop.getStatus();
@@ -227,7 +227,7 @@ public class StopDetails extends AppCompatActivity {
                         status,
                         timeCompletionVal,
                         etaVal,
-                        failReason,
+                        reason,
                         deliveryIDVal,
                         signatureBytes,
                         routeID
@@ -275,7 +275,7 @@ public class StopDetails extends AppCompatActivity {
                                         status,
                                         timeCompletionVal,
                                         etaVal,
-                                        failReason,
+                                        reason,
                                         deliveryID,
                                         null,
                                         routeID);

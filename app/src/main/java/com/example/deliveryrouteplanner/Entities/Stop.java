@@ -20,18 +20,18 @@ public class Stop implements Serializable {
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     private byte[] signature;
     private int routeID;
-    private String failReason;
+    private String reason;
 
 
     //constructor
 
-    public Stop (int stopID, String address, String status, Date timestamp,Date estArrival, String deliveryID, String failReason, byte[] signature, int routeID) {
+    public Stop (int stopID, String address, String status, Date timestamp,Date estArrival, String deliveryID, String reason, byte[] signature, int routeID) {
         this.stopID = stopID;
         this.address = address;
         this.status = status;
         this.timestamp = timestamp;
         this.estArrival = estArrival;
-        this.failReason = failReason;
+        this.reason = reason;
         this.deliveryID = deliveryID;
         this.signature = signature;
         this.routeID = routeID;
@@ -106,12 +106,12 @@ public class Stop implements Serializable {
         this.deliveryID = deliveryID;
     }
 
-    public String getFailReason() {
-        return failReason;
+    public String getReason() {
+        return reason;
     }
 
-    public void setFailReason(String failReason) {
-        this.failReason = failReason;
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 
 }
