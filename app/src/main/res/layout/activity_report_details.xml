@@ -5,6 +5,79 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bluegray"
     tools:context=".UI.ReportDetails">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/reportdetailstoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageButton
+            android:id="@+id/homebutton"
+            android:backgroundTint="@color/yellow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/outline_delivery_truck_speed_24" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/textViewReportSelectRoutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Select Routes to Include in this Report:"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reportdetailstoolbar"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reportdetailsrecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@color/lightgray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewReportSelectRoutes" />
+
+    <TextView
+        android:id="@+id/textViewReportGeneratedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Generated On: N/A"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reportdetailsrecyclerview"/>
+
+    <Button
+        android:id="@+id/GenerateReportButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/navy"
+        android:text="Generate Report"
+        app:layout_constraintTop_toBottomOf="@id/textViewReportGeneratedTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/shareReportButton"/>
+
+    <Button
+        android:id="@+id/shareReportButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/navy"
+        android:text="Share Report"
+        app:layout_constraintTop_toBottomOf="@id/textViewReportGeneratedTime"
+        app:layout_constraintStart_toEndOf="@id/GenerateReportButton"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

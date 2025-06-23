@@ -136,7 +136,7 @@ public class RouteDetails extends AppCompatActivity {
 
 
 
-        //TODO: create the StopAdapter and add the recyclerview for associated stops list
+        // recyclerview for associated stops list
         RecyclerView stopRecyclerView = findViewById(R.id.routedetailsrecyclerview);
         final StopAdapter stopAdapter = new StopAdapter(this);
         stopRecyclerView.setAdapter(stopAdapter);

@@ -5,23 +5,38 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.deliveryrouteplanner.Entities.Report;
 import com.example.deliveryrouteplanner.R;
+import com.example.deliveryrouteplanner.ViewModels.ReportViewModel;
+import com.example.deliveryrouteplanner.ViewModels.RouteViewModel;
+import com.example.deliveryrouteplanner.ViewModels.StopViewModel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Set;
 
 public class ReportDetails extends AppCompatActivity {
+    
+    private ReportViewModel reportViewModel;
+    private StopViewModel stopViewModel;
+    private RouteViewModel routeViewModel;
+    private RouteSelectionAdapter routeSelectionAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,37 +49,58 @@ public class ReportDetails extends AppCompatActivity {
             return insets;
         });
 
-        //delete button functionality code sample
-//        ImageButton deleteRouteButton = findViewById(R.id.routedetailsdeletebutton);
-//        deleteRouteButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (routeID != -1) {
-//                    new AlertDialog.Builder(RouteDetails.this).setTitle("Delete Route")
-//                            .setMessage("Are you sure you want to delete this route?")
-//                            .setPositiveButton("Delete", (dialog, which) -> {
-//                                Date dateValue;
-//                                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
-//                                try {
-//                                    dateValue = sdf.parse(editDate.getText().toString().trim());
-//                                } catch (ParseException e) {
-//                                    editDate.setError("Invalid date format");
-//                                    return;
-//                                }
-//                                SharedPreferences sharedPref = RouteDetails.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-//                                String uid = sharedPref.getString("uid", null);
-//                                Route routeToDelete = new Route(
-//                                        routeID, dateValue, startLocation, endLocation, stopCount, totalDistance,routeActive, uid);
-//                                routeViewModel.delete(routeToDelete);
-//                                Toast.makeText(RouteDetails.this, "Route deleted", Toast.LENGTH_SHORT).show();
-//                                //returns to route list after deleting
-//                                startActivity(new Intent(RouteDetails.this, RouteList.class));
-//                                finish();
-//                            })
-//                            .setNegativeButton("Cancel", null)
-//                            .show();
-//                }
-//            }
-//        });
+        //set toolbar as a support action bar to show menu
+        Toolbar toolbar = findViewById(R.id.reportdetailstoolbar);
+        setSupportActionBar(toolbar);
+        
+        //home button to go back do main activity dashboard
+        ImageButton home = findViewById(R.id.homebutton);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ReportDetails.this, MainActivity.class));
+            }
+        });
+
+        //generate report button
+        Button generateButton = findViewById(R.id.GenerateReportButton);
+        generateButton.setOnClickListener( v -> generateReport());
+
+        //TODO: set up share button
+        
+
+        SharedPreferences sharedPref = ReportDetails.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String userID = sharedPref.getString("uid", null);
+
+        //recyclerview
+        RecyclerView reportRecyclerView = findViewById(R.id.reportdetailsrecyclerview);
+        routeSelectionAdapter = new RouteSelectionAdapter(this);
+        reportRecyclerView.setAdapter(routeSelectionAdapter);
+        reportRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        reportViewModel = new ViewModelProvider(this).get(ReportViewModel.class);
+        stopViewModel = new ViewModelProvider(this).get(StopViewModel.class);
+        routeViewModel = new ViewModelProvider(this).get(RouteViewModel.class);
+        
+        //display available routes
+        routeViewModel.getAllRoutes(userID).observe(this, routes -> {
+            if (routes != null) {
+                routeSelectionAdapter.setRoutes(routes);
+            }
+        });
+
+
+
+
+
+    }
+
+    private void generateReport() {
+        Set<Integer> selectedRouteIds = routeSelectionAdapter.getSelectedRouteIds();
+        if (selectedRouteIds.isEmpty()) {
+            Toast.makeText(this, "Please select at least one route.", Toast.LENGTH_SHORT).show();
+        }
+        //TODO: need to put in logic for generate PDF- toast is for testing button and selection count
+        Toast.makeText(this, "Generating PDF for " + selectedRouteIds.size() + " routes", Toast.LENGTH_SHORT).show();
     }
 }

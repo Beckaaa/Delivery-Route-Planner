@@ -43,7 +43,6 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.RouteViewHol
                     intent.putExtra("totalDistance", current.getTotalDistance());
                     intent.putExtra("stopCount", current.getStopCount());
                     intent.putExtra("routeActive", current.isActive());
-                    //TODO: add photopath intent
                     context.startActivity(intent);
                 }
             });

@@ -5,6 +5,11 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/baseline_home.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/baseline_square_24.xml">
         <config>
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
@@ -30,6 +35,11 @@
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_barcode_scanner_24.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_check_mark.xml">
         <config>
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
@@ -50,12 +60,52 @@
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_fab_add_box.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_failed_circle.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_image_24.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_map_24.xml">
         <config>
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_note_add_24.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_pending_24.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_photo_camera_24.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_reports.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_search_24.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_signature_24.xml">
         <config>
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
@@ -135,6 +185,11 @@
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/route_selection_list_item.xml">
+        <config>
+          <theme>@style/Theme.DeliveryRoutePlanner</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/stop_list_item.xml">
         <config>
           <theme>@style/Theme.DeliveryRoutePlanner</theme>
@@ -171,16 +226,25 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="additional security: added firebase uid check to display specific user's stops/routes only, removed stop list menu item">
+    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="report details activity UI and logic, RouteSelectionAdapter added for reports recyclerview, additional navigation on MainActivity, removed completed TODOs">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteSelectionAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/ViewModels/ReportViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/outline_multiple_stop_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/outline_note_add_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/route_selection_list_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Stop.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Entities/Stop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_report_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_report_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_stop_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_stop_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_dashboard.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/outline_barcode_scanner_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/outline_image_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/outline_photo_camera_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/outline_search_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_report_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_report_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/route_list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/route_list_item.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,9 +281,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="Class" />
-        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -274,6 +338,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Becka\AndroidStudioProjects\d424-software-engineering-capstone\app\src\main\java\com\example\deliveryrouteplanner\UI" />
+    </key>
     <key name="android.template.-2481169">
       <recent name="com.example.deliveryrouteplanner.UI" />
     </key>
@@ -513,7 +580,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750502007060</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="stop details,correction to data to save, added nav for report list/details, stop list, added search function to stop list">
+      <option name="closed" value="true" />
+      <created>1750655253528</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1750655253528</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -546,7 +621,9 @@
     <MESSAGE value="stop details todo notes, changed stop details parent activity to route details" />
     <MESSAGE value="stop details signature, save, delete functionality, and navigation correction for route list" />
     <MESSAGE value="additional security: added firebase uid check to display specific user's stops/routes only, removed stop list menu item" />
-    <option name="LAST_COMMIT_MESSAGE" value="additional security: added firebase uid check to display specific user's stops/routes only, removed stop list menu item" />
+    <MESSAGE value="stop details,correction to data to save, added nav for report list/details, stop list, added search function to stop list" />
+    <MESSAGE value="report details activity UI and logic, RouteSelectionAdapter added for reports recyclerview, additional navigation on MainActivity, removed completed TODOs" />
+    <option name="LAST_COMMIT_MESSAGE" value="report details activity UI and logic, RouteSelectionAdapter added for reports recyclerview, additional navigation on MainActivity, removed completed TODOs" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

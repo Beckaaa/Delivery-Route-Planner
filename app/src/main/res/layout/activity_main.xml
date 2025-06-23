@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:layout_margin="10dp"
     tools:context=".UI.MainActivity">
-<!--TODO: make dashboard home screen -->
 
 
     <androidx.cardview.widget.CardView
@@ -18,6 +17,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dashtoolbar"
         tools:layout_editor_absoluteX="1dp">
 
+        <!--TODO: make current route dashboard display details home screen -->
         <TextView
             android:id="@+id/textViewdashboard"
             android:layout_width="wrap_content"
@@ -28,6 +28,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
 
     </androidx.cardview.widget.CardView>
@@ -68,8 +69,8 @@
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/editcurrentroutecard"
-        app:layout_constraintTop_toBottomOf="@+id/dashboardcard">
+        app:layout_constraintStart_toEndOf="@id/stoplistcard"
+        app:layout_constraintTop_toBottomOf="@+id/newreportcard">
 
         <TextView
             android:id="@+id/textViewreports"
@@ -115,6 +116,91 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             app:srcCompat="@drawable/outline_edit__current_route" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/routelistcard"
+
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/stoplistcard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editcurrentroutecard">
+
+        <ImageView
+            android:id="@+id/imageViewRouteList"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/outline_map_24" />
+
+        <TextView
+            android:id="@+id/textViewRouteList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="All Routes" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/stoplistcard"
+
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/newreportcard"
+        app:layout_constraintStart_toEndOf="@id/routelistcard"
+        app:layout_constraintTop_toBottomOf="@id/editcurrentroutecard">
+
+        <ImageView
+            android:id="@+id/imageViewStopList"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/outline_multiple_stop_24" />
+
+        <TextView
+            android:id="@+id/textViewStopList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            android:text="All Stops" />
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/newreportcard"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/editcurrentroutecard"
+        app:layout_constraintTop_toBottomOf="@id/dashboardcard">
+
+        <ImageView
+            android:id="@+id/imageViewAddReport"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/outline_note_add_24" />
+
+        <TextView
+            android:id="@+id/textViewnewReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Create New Report" />
 
     </androidx.cardview.widget.CardView>
 

@@ -34,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageView createnewroute;
     private ImageView editcurrentroute;
     private ImageView viewreports;
-    private Repository repository;
+    private ImageView createnewreport;
+    private ImageView viewstops;
+    private ImageView viewroutes;
 
 
     @Override
@@ -58,7 +60,11 @@ public class MainActivity extends AppCompatActivity {
         createnewroute = findViewById(R.id.imageViewAddRoute);
         editcurrentroute = findViewById(R.id.imageViewEditCurrentRoute);
         viewreports = findViewById(R.id.imageViewReports);
+        createnewreport = findViewById(R.id.imageViewAddReport);
+        viewstops = findViewById(R.id.imageViewStopList);
+        viewroutes = findViewById(R.id.imageViewRouteList);
 
+        //create new route button
         createnewroute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         RouteViewModel routeViewModel = new ViewModelProvider(this).get(RouteViewModel.class);
+
+        //edit current route button
         editcurrentroute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,12 +99,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //create new report
+        createnewreport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ReportDetails.class));
+            }
+        });
+
+        //view reports button
         viewreports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ReportList.class));
             }
         });
+
+        //view routes button
+        viewroutes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RouteList.class));
+            }
+        });
+
+        //view stops button
+        viewstops.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, StopList.class));
+            }
+        });
+
     }
 
     //menu inflater
@@ -114,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
             return true;
         }
-        //TODO: add functionality for menu items for menu_dashboard (only setup logout so far)
+        //menu item functionality
         if (item.getItemId() == R.id.dashmenuroutes) {
             startActivity(new Intent(MainActivity.this, RouteList.class));
         }

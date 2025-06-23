@@ -29,7 +29,7 @@ public class LoginPage extends AppCompatActivity {
     private EditText password;
     private Button loginbutton;
     private TextView createAccount;
-    //TODO: create forgot password method for password recovery
+
     private TextView forgotPassword;
 
     @Override
@@ -63,7 +63,7 @@ public class LoginPage extends AppCompatActivity {
                 startActivity(new Intent(LoginPage.this, CreateAccountPage.class));
             }
         });
-
+        //password recovery
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
