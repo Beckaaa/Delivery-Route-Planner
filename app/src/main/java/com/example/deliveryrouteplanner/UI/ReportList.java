@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,12 +17,21 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.deliveryrouteplanner.Entities.Report;
 import com.example.deliveryrouteplanner.R;
 import com.example.deliveryrouteplanner.ViewModels.ReportViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 public class ReportList extends AppCompatActivity {
     private ReportViewModel reportViewModel;
+    private List<Report> allReports = new ArrayList<>();
+    private List<Report> reports = new ArrayList<>();
+    private ReportAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,17 +67,50 @@ public class ReportList extends AppCompatActivity {
 
         //display reports in recycler view
         RecyclerView recyclerView = findViewById(R.id.reportlistrecyclerview);
-        final ReportAdapter adapter= new ReportAdapter(this);
+        adapter= new ReportAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         SharedPreferences sharedPref = ReportList.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         String userID = sharedPref.getString("uid", null);
         reportViewModel = new ViewModelProvider(this).get(ReportViewModel.class);
         reportViewModel.getAllReports(userID).observe(this, reports -> {
+            this.allReports = new ArrayList<>(reports);
             adapter.setReports(reports);
         });
 
+        //search reports
+        SearchView searchView = findViewById(R.id.reportlistsearch);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                filterReports(query);
+                return true;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterReports(newText);
+                return true;
+            }
+        });
+
+
+
+
+
+    }
+    public void filterReports(String text) {
+        List<Report> filteredList = new ArrayList<>();
+        for (Report report : allReports) {
+            String id = String.valueOf(report.getReportID());
+            String date = new SimpleDateFormat("MM/dd/yyyy HH:mm", Locale.US).format(report.getDateGenerated());
+            if (id.toLowerCase().contains(text.toLowerCase())
+                || date.toLowerCase().contains(text.toLowerCase())
+            ) {
+                filteredList.add(report);
+            }
+        }
+        adapter.setReports(filteredList);
     }
 
 }

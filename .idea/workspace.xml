@@ -226,18 +226,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="report details activity UI and logic, RouteSelectionAdapter added for reports recyclerview, additional navigation on MainActivity, removed completed TODOs">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/file_paths.xml" afterDir="false" />
+    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="report generation and pdf creation, report list recyclerview">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/StopDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/DAO/StopDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Database/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/Database/Repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/ReportList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteSelectionAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteSelectionAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/ViewModels/ReportViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/ViewModels/ReportViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_report_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_report_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_report_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_report_list.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/report_list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/report_list_item.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -590,7 +584,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750665543958</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="report generation and pdf creation, report list recyclerview">
+      <option name="closed" value="true" />
+      <created>1750679207693</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1750679207693</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -625,7 +627,8 @@
     <MESSAGE value="additional security: added firebase uid check to display specific user's stops/routes only, removed stop list menu item" />
     <MESSAGE value="stop details,correction to data to save, added nav for report list/details, stop list, added search function to stop list" />
     <MESSAGE value="report details activity UI and logic, RouteSelectionAdapter added for reports recyclerview, additional navigation on MainActivity, removed completed TODOs" />
-    <option name="LAST_COMMIT_MESSAGE" value="report details activity UI and logic, RouteSelectionAdapter added for reports recyclerview, additional navigation on MainActivity, removed completed TODOs" />
+    <MESSAGE value="report generation and pdf creation, report list recyclerview" />
+    <option name="LAST_COMMIT_MESSAGE" value="report generation and pdf creation, report list recyclerview" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
