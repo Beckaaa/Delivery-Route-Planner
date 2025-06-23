@@ -34,8 +34,8 @@ public class Stop implements Serializable {
         this.status = status;
         this.timestamp = timestamp;
         this.estArrival = estArrival;
-        this.reason = reason;
         this.deliveryID = deliveryID;
+        this.reason = reason;
         this.signature = signature;
         this.routeID = routeID;
         this.userID = userID;

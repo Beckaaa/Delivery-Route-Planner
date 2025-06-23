@@ -6,5 +6,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UI.StopList">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/stoplisttoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageButton
+            android:id="@+id/homebutton"
+            android:backgroundTint="@color/yellow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/outline_delivery_truck_speed_24" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <SearchView
+        android:id="@+id/stoplistsearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Search Stops..."
+        app:layout_constraintTop_toBottomOf="@id/stoplisttoolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="64dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/stoplistrecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        android:background="@color/lightgray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stoplistsearch" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

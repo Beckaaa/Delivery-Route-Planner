@@ -5,6 +5,9 @@
         <item android:title="All Routes"
             android:id="@+id/dashmenuroutes"
             />
+        <item android:title="All Stops"
+            android:id="@+id/dashmenustops"
+            />
 
         <item android:title="Reports"
             android:id="@+id/dashmenureports"

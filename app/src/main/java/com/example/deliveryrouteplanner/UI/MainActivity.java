@@ -119,6 +119,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, RouteList.class));
         }
 
+        if (item.getItemId() == R.id.dashmenustops) {
+            startActivity(new Intent(MainActivity.this, StopList.class));
+        }
 
         if (item.getItemId() == R.id.dashmenureports) {
             startActivity(new Intent(MainActivity.this, ReportList.class));

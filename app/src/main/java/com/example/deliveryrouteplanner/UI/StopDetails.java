@@ -191,6 +191,7 @@ public class StopDetails extends AppCompatActivity {
 
                 String addressVal = editAddress.getText().toString().trim();
                 String deliveryIDVal = editDeliveryID.getText().toString().trim();
+                String reasonVal = editReason.getText().toString().trim();
                 Date etaVal = null;
                 Date timeCompletionVal = null;
 
@@ -233,8 +234,8 @@ public class StopDetails extends AppCompatActivity {
                         status,
                         timeCompletionVal,
                         etaVal,
-                        reason,
                         deliveryIDVal,
+                        reasonVal,
                         signatureBytes,
                         routeID,
                         currentUserID
@@ -284,8 +285,8 @@ public class StopDetails extends AppCompatActivity {
                                         status,
                                         timeCompletionVal,
                                         etaVal,
-                                        reason,
                                         deliveryID,
+                                        reason,
                                         null,
                                         routeID,
                                         uid
