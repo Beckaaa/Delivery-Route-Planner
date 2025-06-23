@@ -1,6 +1,7 @@
 package com.example.deliveryrouteplanner.UI;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -11,11 +12,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.deliveryrouteplanner.R;
+import com.example.deliveryrouteplanner.ViewModels.ReportViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ReportList extends AppCompatActivity {
+    private ReportViewModel reportViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +55,17 @@ public class ReportList extends AppCompatActivity {
             }
         });
 
-
-
+        //display reports in recycler view
+        RecyclerView recyclerView = findViewById(R.id.reportlistrecyclerview);
+        final ReportAdapter adapter= new ReportAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        SharedPreferences sharedPref = ReportList.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String userID = sharedPref.getString("uid", null);
+        reportViewModel = new ViewModelProvider(this).get(ReportViewModel.class);
+        reportViewModel.getAllReports(userID).observe(this, reports -> {
+            adapter.setReports(reports);
+        });
 
 
     }

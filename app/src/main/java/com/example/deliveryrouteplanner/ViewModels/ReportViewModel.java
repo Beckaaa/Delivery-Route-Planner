@@ -31,4 +31,5 @@ public class ReportViewModel extends AndroidViewModel {
     public void delete(Report report) {
         repository.delete(report);
     }
+
 }

@@ -33,4 +33,7 @@ public interface StopDao {
 
     @Query("SELECT * FROM STOPS WHERE stopID = :stopID AND userID = :userID LIMIT 1")
     LiveData<Stop> getStopById(int stopID, String userID);
+
+    @Query("SELECT * FROM STOPS WHERE routeID = :routeID AND userID = :userID ORDER BY stopID ASC")
+    List<Stop> getAssociatedStopsSync(int routeID, String userID);
 }

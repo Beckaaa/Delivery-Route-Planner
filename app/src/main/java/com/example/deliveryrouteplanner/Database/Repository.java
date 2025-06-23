@@ -11,9 +11,12 @@ import com.example.deliveryrouteplanner.Entities.Report;
 import com.example.deliveryrouteplanner.Entities.Route;
 import com.example.deliveryrouteplanner.Entities.Stop;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class Repository {
     private RouteDao mRouteDao;
@@ -108,4 +111,16 @@ public class Repository {
     public LiveData<Route> getActiveRoute(String userID){
         return mRouteDao.getActiveRoute(userID);
     }
+
+    public List<Stop> getAssociatedStopsSync(int routeID, String userID) {
+        Future<List<Stop>> future = databaseExecutor.submit(()-> mStopDao.getAssociatedStopsSync(routeID, userID));
+        try {
+            return future.get();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
+
 }

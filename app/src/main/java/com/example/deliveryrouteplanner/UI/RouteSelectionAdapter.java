@@ -53,8 +53,8 @@ public class RouteSelectionAdapter extends RecyclerView.Adapter<RouteSelectionAd
             Route currentRoute = routeList.get(position);
             String info = "Route #" + currentRoute.getRouteID() +
                     "\nDate: " + new SimpleDateFormat("MM/dd/yyyy", Locale.US).format(currentRoute.getDate()) +
-                    "From: " + currentRoute.getStartLocation() +
-                    "To: " + currentRoute.getEndLocation();
+                    "\nFrom: " + currentRoute.getStartLocation() +
+                    " To: " + currentRoute.getEndLocation();
 
             holder.routeInfo.setText(info);
             holder.routeCheckBox.setOnCheckedChangeListener(null);
@@ -83,5 +83,9 @@ public class RouteSelectionAdapter extends RecyclerView.Adapter<RouteSelectionAd
 
     public Set<Integer> getSelectedRouteIds() {
         return selectedRouteIds;
+    }
+
+    public List<Route> getRouteList(){
+        return new ArrayList<>(routeList);
     }
 }
