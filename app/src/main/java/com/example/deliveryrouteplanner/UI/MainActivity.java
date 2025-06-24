@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -18,7 +19,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.deliveryrouteplanner.Database.Repository;
 import com.example.deliveryrouteplanner.Entities.Route;
 import com.example.deliveryrouteplanner.ViewModels.RouteViewModel;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageView createnewreport;
     private ImageView viewstops;
     private ImageView viewroutes;
+    private TextView currentStart;
+    private TextView currentEnd;
+    private TextView currentStops;
 
 
     @Override
@@ -64,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         viewstops = findViewById(R.id.imageViewStopList);
         viewroutes = findViewById(R.id.imageViewRouteList);
 
+
+
         //create new route button
         createnewroute.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +77,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         RouteViewModel routeViewModel = new ViewModelProvider(this).get(RouteViewModel.class);
+
+
+        //current route details dashboard
+        currentStart = findViewById(R.id.textViewdashboardStartLocation);
+        currentEnd = findViewById(R.id.textViewdashboardEndLocation);
+        currentStops = findViewById(R.id.textViewdashboardStopCount);
+        SharedPreferences sharedPref = MainActivity.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String userID = sharedPref.getString("uid", null);
+        routeViewModel.getActiveRoute(userID).observe(MainActivity.this, route -> {
+            if (route != null && route.isActive()) {
+                currentStart.setText(String.format("Start Location: %s", route.getStartLocation()));
+                currentEnd.setText(String.format("End Location: %s", route.getEndLocation()));
+                currentStops.setText(String.format("Stops: %s", route.getStopCount()));
+            }
+        });
 
         //edit current route button
         editcurrentroute.setOnClickListener(new View.OnClickListener() {

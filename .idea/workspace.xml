@@ -226,10 +226,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="report list search functionality added and share button for reports functional">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/StopDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="stop status button default to pending correction, dashboard current route details UI">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -597,7 +595,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750683092618</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="stop status button default to pending correction, dashboard current route details UI">
+      <option name="closed" value="true" />
+      <created>1750781046368</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1750781046368</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -634,7 +640,8 @@
     <MESSAGE value="report details activity UI and logic, RouteSelectionAdapter added for reports recyclerview, additional navigation on MainActivity, removed completed TODOs" />
     <MESSAGE value="report generation and pdf creation, report list recyclerview" />
     <MESSAGE value="report list search functionality added and share button for reports functional" />
-    <option name="LAST_COMMIT_MESSAGE" value="report list search functionality added and share button for reports functional" />
+    <MESSAGE value="stop status button default to pending correction, dashboard current route details UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="stop status button default to pending correction, dashboard current route details UI" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
