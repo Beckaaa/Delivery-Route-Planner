@@ -137,7 +137,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="total stops for the route"
+                android:clickable="false"
+                android:focusable="false"
+                android:enabled="false"
+                android:hint="0"
                 android:inputType="number" />
         </LinearLayout>
 

@@ -148,6 +148,7 @@ public class RouteDetails extends AppCompatActivity {
                     @Override
                     public void onChanged(List<Stop> stops) {
                         stopAdapter.setStops(stops);
+                        editStopCount.setText(String.valueOf(stops.size()));
                     }
         });
 
@@ -168,14 +169,7 @@ public class RouteDetails extends AppCompatActivity {
                     int newRouteID = (cachedRoutes == null || cachedRoutes.isEmpty())
                             ? 1
                             : cachedRoutes.get(cachedRoutes.size()-1).getRouteID()+1;
-                    //parse stop counts
-                    int editStopCountValue;
-                    try {
-                        editStopCountValue = Integer.parseInt(editStopCount.getText().toString().trim());
-                    } catch (NumberFormatException e) {
-                        editStopCount.setError("Invalid stop count");
-                        return;
-                    }
+                    int actualStopCount = stopAdapter.getItemCount();
                     //parse distance
                     int editTotalDistanceValue;
                     try {
@@ -205,7 +199,7 @@ public class RouteDetails extends AppCompatActivity {
                             dateValue,
                             editStartLocation.getText().toString(),
                             editEndLocation.getText().toString(),
-                            editStopCountValue,
+                            actualStopCount,
                             editTotalDistanceValue,
                             isActive,
                             currentUserID
@@ -218,13 +212,7 @@ public class RouteDetails extends AppCompatActivity {
                     fab.setVisibility(View.VISIBLE);
                 }
                 else {
-                    int editStopCountValue;
-                    try {
-                        editStopCountValue = Integer.parseInt(editStopCount.getText().toString().trim());
-                    } catch (NumberFormatException e) {
-                        editStopCount.setError("Invalid stop count");
-                        return;
-                    }
+                    int actualStopCount = stopAdapter.getItemCount();
                     //parse distance
                     int editTotalDistanceValue;
                     try {
@@ -255,7 +243,7 @@ public class RouteDetails extends AppCompatActivity {
                             dateValue,
                             editStartLocation.getText().toString(),
                             editEndLocation.getText().toString(),
-                            editStopCountValue,
+                            actualStopCount,
                             editTotalDistanceValue,
                             isActive,
                             uid

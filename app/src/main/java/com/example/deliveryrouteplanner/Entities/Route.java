@@ -21,13 +21,13 @@ public class Route {
     private String userID;
 
     //constructor
-    public Route(int routeID, Date date, String startLocation, String endLocation, int totalDistance, int stopCount, boolean isActive, String userID) {
+    public Route(int routeID, Date date, String startLocation, String endLocation, int stopCount, int totalDistance, boolean isActive, String userID) {
         this.routeID = routeID;
         this.date = date;
         this.startLocation = startLocation;
         this.endLocation = endLocation;
-        this.totalDistance = totalDistance;
         this.stopCount = stopCount;
+        this.totalDistance = totalDistance;
         this.isActive = isActive;
         this.userID = userID;
     }

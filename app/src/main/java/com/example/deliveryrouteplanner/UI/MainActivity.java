@@ -85,13 +85,7 @@ public class MainActivity extends AppCompatActivity {
         currentStops = findViewById(R.id.textViewdashboardStopCount);
         SharedPreferences sharedPref = MainActivity.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         String userID = sharedPref.getString("uid", null);
-        routeViewModel.getActiveRoute(userID).observe(MainActivity.this, route -> {
-            if (route != null && route.isActive()) {
-                currentStart.setText(String.format("Start Location: %s", route.getStartLocation()));
-                currentEnd.setText(String.format("End Location: %s", route.getEndLocation()));
-                currentStops.setText(String.format("Stops: %s", route.getStopCount()));
-            }
-        });
+
 
         //edit current route button
         editcurrentroute.setOnClickListener(new View.OnClickListener() {
@@ -196,6 +190,26 @@ public class MainActivity extends AppCompatActivity {
         if (currentUser== null) {
             startActivity(new Intent(MainActivity.this, LoginPage.class));
         }
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        SharedPreferences sharedPref = MainActivity.this.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String userID = sharedPref.getString("uid", null);
+        RouteViewModel routeViewModel = new ViewModelProvider(this).get(RouteViewModel.class);
+        routeViewModel.getActiveRoute(userID).observe(MainActivity.this, route -> {
+            if (route != null && route.isActive()) {
+                currentStart.setText(String.format("Start Location: %s", route.getStartLocation()));
+                currentEnd.setText(String.format("End Location: %s", route.getEndLocation()));
+                currentStops.setText(String.format("Stops: %s", route.getStopCount()));
+            }
+            else {
+                currentStart.setText("Start Location: N/A");
+                currentEnd.setText("End Location: N/A");
+                currentStops.setText("Stops: 0");
+            }
+        });
     }
 
 }

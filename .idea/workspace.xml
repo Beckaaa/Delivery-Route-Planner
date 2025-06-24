@@ -226,8 +226,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="stop status button default to pending correction, dashboard current route details UI">
+    <list default="true" id="37921bb4-6ec6-4605-ad0e-137978bcc1fb" name="Changes" comment="dashboard current route details display active route functionality added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/deliveryrouteplanner/UI/RouteDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_route_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_route_details.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -603,7 +606,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750781046368</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="dashboard current route details display active route functionality added">
+      <option name="closed" value="true" />
+      <created>1750781775460</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1750781775460</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -641,7 +652,8 @@
     <MESSAGE value="report generation and pdf creation, report list recyclerview" />
     <MESSAGE value="report list search functionality added and share button for reports functional" />
     <MESSAGE value="stop status button default to pending correction, dashboard current route details UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="stop status button default to pending correction, dashboard current route details UI" />
+    <MESSAGE value="dashboard current route details display active route functionality added" />
+    <option name="LAST_COMMIT_MESSAGE" value="dashboard current route details display active route functionality added" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
