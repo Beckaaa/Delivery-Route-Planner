@@ -192,9 +192,17 @@ public class StopDetails extends AppCompatActivity {
                         ? 1
                         : cachedStops.get(cachedStops.size() - 1).getStopID() + 1
                         : stopID;
-
+                //validators for required inputs
                 String addressVal = editAddress.getText().toString().trim();
+                if (addressVal.isEmpty()) {
+                    editAddress.setError("Address required");
+                    return;
+                }
                 String deliveryIDVal = editDeliveryID.getText().toString().trim();
+                if (deliveryIDVal.isEmpty()) {
+                    editDeliveryID.setError("Delivery ID required");
+                    return;
+                }
                 String reasonVal = editReason.getText().toString().trim();
                 Date etaVal = null;
                 Date timeCompletionVal = null;
@@ -202,6 +210,10 @@ public class StopDetails extends AppCompatActivity {
                 SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.US);
                 //set timecompleteval
                 try {
+                    if (editETA.getText().toString().isEmpty()){
+                        editETA.setError("ETA required");
+                        return;
+                    }
                     if (!editETA.getText().toString().isEmpty()){
                         etaVal = timeFormat.parse(editETA.getText().toString().trim());
                     }

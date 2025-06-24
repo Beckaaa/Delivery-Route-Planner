@@ -170,10 +170,27 @@ public class RouteDetails extends AppCompatActivity {
                             ? 1
                             : cachedRoutes.get(cachedRoutes.size()-1).getRouteID()+1;
                     int actualStopCount = stopAdapter.getItemCount();
-                    //parse distance
+
+                    //start and end location values not empty validator
+                    String start = editStartLocation.getText().toString().trim();
+                    String end = editEndLocation.getText().toString().trim();
+                    if (start.isEmpty()) {
+                        editStartLocation.setError("Start location required");
+                        return;
+                    }
+                    if (end.isEmpty()) {
+                        editEndLocation.setError("End location required");
+                        return;
+                    }
+
+                    //parse and validate distance
                     int editTotalDistanceValue;
                     try {
                         editTotalDistanceValue = Integer.parseInt(editTotalDistance.getText().toString().trim());
+                        if (editTotalDistanceValue < 0){
+                            editTotalDistance.setError("Distance cannot be negative");
+                            return;
+                        }
                     }
                     catch (NumberFormatException e) {
                         editTotalDistance.setError("Invalid total distance");
@@ -250,6 +267,7 @@ public class RouteDetails extends AppCompatActivity {
                     );
                     routeViewModel.update(route);
                     Toast.makeText(RouteDetails.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(RouteDetails.this, MainActivity.class));
                 }
             }
         });

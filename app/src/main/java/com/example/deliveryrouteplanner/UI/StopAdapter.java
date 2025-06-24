@@ -16,6 +16,7 @@ import com.example.deliveryrouteplanner.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -56,9 +57,18 @@ public class StopAdapter extends RecyclerView.Adapter<StopAdapter.StopViewHolder
     public void onBindViewHolder(@NonNull StopAdapter.StopViewHolder holder, int position) {
         if(!mStops.isEmpty()) {
             Stop current = mStops.get(position);
-            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.US);
-            String etaFormatted = timeFormat.format(current.getEstArrival());
-            holder.stopItemView.setText("Stop: " + current.getAddress() + " ETA: " + etaFormatted);
+            String address = current.getAddress();
+            String etaFormatted;
+            Date eta = current.getEstArrival();
+            if(eta != null){
+                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.US);
+                etaFormatted = timeFormat.format(current.getEstArrival());
+            }
+            else {
+                etaFormatted = "N/A";
+            }
+
+            holder.stopItemView.setText("Stop: " + address + " ETA: " + etaFormatted);
         }
     }
 
