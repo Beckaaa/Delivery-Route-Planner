@@ -43,7 +43,7 @@ public class StopDetails extends AppCompatActivity {
     ImageButton btnSuccess;
     ImageButton btnPending;
     ImageButton btnFailed;
-    String status;
+    String status = "Pending";
     String address;
     EditText editAddress;
     //String estArrival;
@@ -85,6 +85,7 @@ public class StopDetails extends AppCompatActivity {
         btnPending = findViewById(R.id.imageButtonPending);
         btnFailed = findViewById(R.id.imageButtonFailed);
 
+
         View.OnClickListener statusClickListener = v -> {
             resetStatusButtonTint();
           if (v.getId() == R.id.imageButtonPending) {
@@ -121,6 +122,9 @@ public class StopDetails extends AppCompatActivity {
 
         //using serializable extra instead of passing data individually
         Stop stop = (Stop) getIntent().getSerializableExtra("stop");
+        if (stop == null) {
+            resetStatusButtonTint();
+        }
         if (stop != null) {
             stopID = stop.getStopID();
             editAddress.setText(stop.getAddress());
@@ -308,7 +312,7 @@ public class StopDetails extends AppCompatActivity {
 
     //reset status buttons when no status selected
     private void resetStatusButtonTint(){
-        btnPending.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.bluegray));
+        btnPending.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.yellow));
         btnSuccess.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.bluegray));
         btnFailed.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.bluegray));
     }
