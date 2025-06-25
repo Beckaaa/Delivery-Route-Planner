@@ -83,7 +83,6 @@ public class UnitTests {
                 "user123"
         );
         assertNotNull(routeTest.getUserID());
-
     }
 
 }
