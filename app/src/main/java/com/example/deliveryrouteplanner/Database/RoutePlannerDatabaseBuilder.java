@@ -15,7 +15,7 @@ import com.example.deliveryrouteplanner.Entities.Report;
 import com.example.deliveryrouteplanner.Entities.Route;
 import com.example.deliveryrouteplanner.Entities.Stop;
 
-import Controller.Converters;
+import com.example.deliveryrouteplanner.Controller.Converters;
 
 @Database(entities = {Route.class, Stop.class, Report.class}, version= 9, exportSchema = false)
 @TypeConverters(Converters.class)

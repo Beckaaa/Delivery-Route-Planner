@@ -46,8 +46,6 @@ public class StopDetails extends AppCompatActivity {
     String status = "Pending";
     String address;
     EditText editAddress;
-    //String estArrival;
-    //String timeComplete;
     EditText editETA;
     EditText editDeliveryID;
     String deliveryID;

@@ -24,7 +24,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.example.deliveryrouteplanner.Database.Repository;
 import com.example.deliveryrouteplanner.Entities.Route;
 import com.example.deliveryrouteplanner.Entities.Stop;
 import com.example.deliveryrouteplanner.R;
@@ -40,12 +39,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import Controller.DatePickerController;
+import com.example.deliveryrouteplanner.Controller.DatePickerController;
 
 public class RouteDetails extends AppCompatActivity {
-    private Repository repository;
-    private RecyclerView recyclerView;
-
     EditText editDate;
     EditText editStartLocation;
     EditText editEndLocation;
